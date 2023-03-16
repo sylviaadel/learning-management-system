@@ -23,7 +23,7 @@ export default function SignUp() {
 
   return (
     <div className="auth-page">
-      <h1>Signup</h1>
+      <h1>Create a new Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
         <input
           placeholder="email"
@@ -41,8 +41,7 @@ export default function SignUp() {
         <br />
         <button className="primary-btn">Sign Up</button>
       </form>
-      <br />
-      <Link to="/login">Login Instead</Link>
+      <Link to="/login">Already have an account</Link>
     </div>
   );
 }

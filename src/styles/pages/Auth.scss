@@ -16,12 +16,12 @@
   .links-container {
     display: flex;
     width: 250px;
-    margin-top: $spacing-xsmall;
     justify-content: space-between;
-    a {
-      color: $blueColor;
-      font-size: 14px;
-    }
+  }
+  a {
+    color: $blueColor;
+    font-size: 14px;
+    margin-top: $spacing-xsmall;
   }
 }
 
@@ -31,9 +31,10 @@
     background-size: cover;
     .links-container {
       width: 380px;
-      a {
-        font-size: 20px;
-      }
+    }
+    a {
+      font-size: 20px;
+      margin-top: $spacing-small;
     }
   }
 }

@@ -24,7 +24,7 @@ export default function Navbar() {
           <FontAwesomeIcon icon={solid("circle-user")} />
           <span className="link-text">Logout</span>
         </li>
-        <li className="login-btn">
+        <li className="expand-btn">
           <FontAwesomeIcon icon={solid("angles-right")} />
         </li>
       </ul>

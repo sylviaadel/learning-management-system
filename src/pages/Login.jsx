@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../scripts/auth";
+import { useUser } from "../state/UserState";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { setUid, saveUID } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [remember, setRemember] = useState(false);
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -13,7 +16,12 @@ export default function Login() {
     result.status ? onSuccess(result) : onFailure(result);
   }
 
-  function onSuccess() {
+  function onSuccess(result) {
+    if (remember) {
+      saveUID(result.payload);
+    }
+    setUid(result.payload);
+
     navigate("/secret-page");
   }
 
@@ -38,6 +46,15 @@ export default function Login() {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
+        <br />
+        <label>
+          <input
+            type="checkbox"
+            checked={remember}
+            onChange={() => setRemember(!remember)}
+          />
+          Remember Me
+        </label>
         <br />
         <button>Login</button>
       </form>

@@ -1,0 +1,105 @@
+#Navbar {
+  height: 60px;
+  background-color: $darkBlueColor;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  ul {
+    display: flex;
+    li {
+      height: 60px;
+      border-right: solid 1px #656e90;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $babyBlueColor;
+      transition: background-color 200ms ease;
+      width: 25%;
+      cursor: pointer;
+      &:hover {
+        background-color: #383e51;
+      }
+      &:last-child {
+        border: 0;
+      }
+      .link-text {
+        display: none;
+        margin-left: $spacing-small;
+        color: $babyBlueColor;
+        font-size: 26px;
+      }
+      img {
+        height: 45px;
+      }
+      svg {
+        font-size: 30px;
+        path {
+          color: $babyBlueColor;
+        }
+      }
+      &.login-btn {
+        svg {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  #Navbar {
+    width: 100px;
+    height: calc(100vh);
+    transition: width 200ms ease;
+    & + * {
+      margin-left: 100px;
+    }
+    &:hover {
+      width: 350px;
+      li {
+        justify-content: flex-start;
+        padding-left: 30px;
+        &:first-child {
+          padding-left: 10px;
+        }
+        .link-text {
+          display: block;
+        }
+        &:last-child {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    ul {
+      flex-direction: column;
+      height: 100%;
+      li {
+        height: 100px;
+        width: 100%;
+        border-left: 0;
+        border-bottom: solid 1px #656e90;
+        &:first-child {
+          height: 130px;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          height: 5rem;
+        }
+        &:nth-child(4) {
+          margin-top: auto;
+        }
+        img {
+          height: 75px;
+          & + .link-text {
+            color: $orangeColor;
+            font-size: 30px;
+          }
+        }
+        svg {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}

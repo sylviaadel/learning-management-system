@@ -1,21 +1,42 @@
 #Home {
   .Hero {
     height: calc(100vh);
-    background: url("../images/main-bg.png") right;
+    background: linear-gradient(
+        rgba(255, 246, 243, 0.7),
+        rgba(255, 246, 243, 0.7)
+      ),
+      url("../../assets/images/main-bg.png") right no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 20%;
+    align-items: center;
     gap: $spacing-large;
     h1 {
       color: $pinkColor;
-      max-width: 850px;
-      width: 50%;
+      width: 305px;
     }
     p {
-      max-width: 850px;
-      width: 50%;
+      width: 305px;
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  #Home {
+    .Hero {
+      background: url("../../assets/images/main-bg.png") right;
+      background-size: cover;
+      padding-left: 20%;
+      align-items: flex-start;
+      h1 {
+        max-width: 850px;
+        width: 50%;
+      }
+      p {
+        max-width: 850px;
+        width: 50%;
+      }
     }
   }
 }

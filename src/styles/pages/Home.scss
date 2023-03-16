@@ -1,0 +1,21 @@
+#Home {
+  .Hero {
+    height: calc(100vh);
+    background: url("../images/main-bg.png") right;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20%;
+    gap: $spacing-large;
+    h1 {
+      color: $pinkColor;
+      max-width: 850px;
+      width: 50%;
+    }
+    p {
+      max-width: 850px;
+      width: 50%;
+    }
+  }
+}

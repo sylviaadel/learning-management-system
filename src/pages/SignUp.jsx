@@ -39,7 +39,7 @@ export default function SignUp() {
           onChange={(event) => setPassword(event.target.value)}
         />
         <br />
-        <button>Sign Up</button>
+        <button className="primary-btn">Sign Up</button>
       </form>
       <br />
       <Link to="/login">Login Instead</Link>

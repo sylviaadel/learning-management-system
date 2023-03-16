@@ -1,0 +1,39 @@
+.auth-page {
+  height: calc(100vh);
+  background: linear-gradient(
+      rgba(255, 246, 243, 0.7),
+      rgba(255, 246, 243, 0.7)
+    ),
+    url("../../assets/images/fashion-bg.png") right no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    margin-bottom: $spacing-medium;
+  }
+  .links-container {
+    display: flex;
+    width: 250px;
+    margin-top: $spacing-xsmall;
+    justify-content: space-between;
+    a {
+      color: $blueColor;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  .auth-page {
+    background: url("../../assets/images/fashion-bg.png") right;
+    background-size: cover;
+    .links-container {
+      width: 380px;
+      a {
+        font-size: 20px;
+      }
+    }
+  }
+}

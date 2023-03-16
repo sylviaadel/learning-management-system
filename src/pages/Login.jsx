@@ -56,11 +56,12 @@ export default function Login() {
           Remember Me
         </label>
         <br />
-        <button>Login</button>
+        <button className="primary-btn">Login</button>
       </form>
-      <Link to="/recover-password">Forgot password?</Link>
-      <br />
-      <Link to="/sign-up">Create a new account</Link>
+      <div className="links-container">
+        <Link to="/recover-password">Forgot you password?</Link>
+        <Link to="/sign-up">Create a new account</Link>
+      </div>
     </div>
   );
 }

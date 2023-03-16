@@ -32,7 +32,7 @@ export default function RecoverPassowrd() {
           onChange={(event) => setEmail(event.target.value)}
         />
         <br />
-        <button>Recover Account</button>
+        <button className="primary-btn">Recover Account</button>
       </form>
       <br />
       <Link to="/login">Go back to Login</Link>

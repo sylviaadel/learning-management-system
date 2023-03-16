@@ -1,13 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { recoverAccount } from "../scripts/auth";
 
 export default function RecoverPassowrd() {
   const [email, setEmail] = useState("");
 
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
-    alert(email);
+    const result = await recoverAccount(email);
+    result.status ? onSuccess(result) : onFailure(result);
   }
+
+  function onSuccess(result) {
+    const message =
+      "Email with a reset link sent. Please check your SPAM/Junk folder as well.";
+    alert(message);
+  }
+
+  function onFailure(result) {
+    alert(result.message);
+  }
+
   return (
     <div className="auth-page">
       <h1>Recover</h1>

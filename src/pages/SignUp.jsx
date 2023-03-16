@@ -10,7 +10,7 @@ export default function SignUp() {
   async function onSubmit(event) {
     event.preventDefault();
     const result = await createAccount(email, password);
-    result.status === true ? onSuccess(result) : onFailure(result);
+    result.status ? onSuccess(result) : onFailure(result);
   }
 
   function onSuccess() {

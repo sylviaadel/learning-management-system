@@ -1,13 +1,24 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../scripts/auth";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
-    alert(email, password);
+    const result = await login(email, password);
+    result.status === true ? onSuccess(result) : onFailure(result);
+  }
+
+  function onSuccess() {
+    navigate("/secret-page");
+  }
+
+  function onFailure(result) {
+    alert(result.message);
   }
 
   return (

@@ -8,12 +8,24 @@ export async function createAccount(email, password) {
 
   try {
     const data = await createUserWithEmailAndPassword(auth, email, password);
-    result = { status: true, payload: data.user.uid, message: "Created!" };
+    result = { status: true, payload: data.user.uid, message: "User Created!" };
   } catch (error) {
     result.message = error.code;
   }
 
   return result;
 }
-export async function login(email, password) {}
+export async function login(email, password) {
+  let result = { status: false, payload: "", message: "" };
+
+  try {
+    const data = await signInWithEmailAndPassword(auth, email, password);
+
+    result = { status: true, payload: data.user.uid, message: "Logged in!" };
+  } catch (error) {
+    result.message = error.code;
+  }
+
+  return result;
+}
 export async function recoverAccount(email) {}

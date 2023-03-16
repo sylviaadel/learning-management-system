@@ -5,7 +5,7 @@
         rgba(255, 246, 243, 0.7),
         rgba(255, 246, 243, 0.7)
       ),
-      url("../images/main-bg.png") right no-repeat;
+      url("../../assets/images/main-bg.png") right no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -25,7 +25,7 @@
 @media (min-width: 860px) {
   #Home {
     .Hero {
-      background: url("../images/main-bg.png") right;
+      background: url("../../assets/images/main-bg.png") right;
       background-size: cover;
       padding-left: 20%;
       align-items: flex-start;

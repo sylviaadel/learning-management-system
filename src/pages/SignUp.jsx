@@ -11,11 +11,10 @@ export default function SignUp() {
     event.preventDefault();
     const result = await createAccount(email, password);
     result.status === true ? onSuccess(result) : onFailure(result);
-    navigate("/secret-page");
   }
 
   function onSuccess() {
-    alert("yeahh");
+    navigate("/secret-page");
   }
 
   function onFailure(result) {

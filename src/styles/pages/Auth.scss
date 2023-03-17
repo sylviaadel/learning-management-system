@@ -44,6 +44,13 @@
         }
       }
     }
+    span.remember-me {
+      font-size: 12px;
+      input {
+        float: left;
+        margin: 2px 5px 0 0;
+      }
+    }
     button {
       margin: $spacing-medium auto 0;
     }
@@ -70,6 +77,13 @@
           width: 600px;
           padding: 0 $spacing-small;
           font-size: 20px;
+        }
+      }
+      span.remember-me {
+        font-size: 16px;
+        input {
+          float: left;
+          margin: 4px 5px 0 0;
         }
       }
       button {

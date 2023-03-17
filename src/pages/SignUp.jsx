@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createAccount } from "../scripts/auth";
+import { useUser } from "../state/UserState";
 
 export default function SignUp() {
   const navigate = useNavigate();
+  const { setUid, saveUID } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [remember, setRemember] = useState(false);
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -13,7 +16,11 @@ export default function SignUp() {
     result.status ? onSuccess(result) : onFailure(result);
   }
 
-  function onSuccess() {
+  function onSuccess(result) {
+    if (remember) {
+      saveUID(result.payload);
+    }
+    setUid(result.payload);
     navigate("/secret-page");
   }
 
@@ -43,6 +50,14 @@ export default function SignUp() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
+        <span className="remember-me">
+          <input
+            type="checkbox"
+            checked={remember}
+            onChange={() => setRemember(!remember)}
+          />
+          Remember Me
+        </span>
         <button className="primary-btn">Sign Up</button>
       </form>
       <Link to="/login">Already have an account</Link>

@@ -21,7 +21,6 @@ export default function Login() {
       saveUID(result.payload);
     }
     setUid(result.payload);
-
     navigate("/secret-page");
   }
 
@@ -51,7 +50,7 @@ export default function Login() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-        <span>
+        <span className="remember-me">
           <input
             type="checkbox"
             checked={remember}

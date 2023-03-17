@@ -1,10 +1,12 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useReducer } from "react";
+import { usersReducer } from "./UsersReducer";
 
 const Context = createContext();
 
 export function UserProvider({ children, storageKey }) {
+  const [data, dispatch] = useReducer(usersReducer, []);
   const [uid, setUid] = useState(loadUID(storageKey));
-  const value = { uid, setUid, saveUID };
+  const values = { uid, setUid, saveUID, data, dispatch };
 
   function loadUID(storageKey) {
     const data = localStorage.getItem(storageKey);
@@ -15,7 +17,7 @@ export function UserProvider({ children, storageKey }) {
     localStorage.setItem(storageKey, uid);
   }
 
-  return <Context.Provider value={value}>{children}</Context.Provider>;
+  return <Context.Provider value={values}>{children}</Context.Provider>;
 }
 
 export function useUser() {

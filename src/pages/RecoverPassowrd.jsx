@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { recoverAccount } from "../scripts/auth";
+import { recoverAccount } from "../scripts/auth/recoverAccount";
 
 export default function RecoverPassowrd() {
   const [email, setEmail] = useState("");

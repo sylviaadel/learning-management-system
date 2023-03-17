@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { createAccount } from "../scripts/auth";
+import { createAccount } from "../scripts/auth/createAccount";
 import { useUser } from "../state/UserState";
 
 export default function SignUp() {

@@ -25,13 +25,15 @@ export default function RecoverPassowrd() {
     <div className="auth-page">
       <h1>Recover Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
-        <input
-          placeholder="email"
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <br />
+        <label>
+          Email
+          <input
+            placeholder="email"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </label>
         <button className="primary-btn">Recover Account</button>
       </form>
       <Link to="/login">Go back to Login</Link>

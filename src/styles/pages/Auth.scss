@@ -22,6 +22,31 @@
     color: $blueColor;
     font-size: 14px;
     margin-top: $spacing-xsmall;
+    text-decoration: none;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: $spacing-xsmall;
+      input {
+        border: solid 1px $darkBlueColor;
+        border-radius: 5px;
+        height: 34px;
+        width: 270px;
+        background-color: $lightOrangeColor;
+        padding: 0 $spacing-xsmall;
+        &:-webkit-autofill,
+        &:-webkit-autofill:focus {
+          box-shadow: inset 0 0 0 100px rgba(255, 246, 243, 1);
+        }
+      }
+    }
+    button {
+      margin: $spacing-medium auto 0;
+    }
   }
 }
 
@@ -35,6 +60,21 @@
     a {
       font-size: 20px;
       margin-top: $spacing-small;
+    }
+    form {
+      label {
+        margin-bottom: $spacing-small;
+        font-size: 24px;
+        input {
+          height: 55px;
+          width: 600px;
+          padding: 0 $spacing-small;
+          font-size: 20px;
+        }
+      }
+      button {
+        margin: $spacing-medium auto 0;
+      }
     }
   }
 }

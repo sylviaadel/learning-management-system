@@ -33,29 +33,32 @@ export default function Login() {
     <div className="auth-page">
       <h1>Login to Your Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
-        <input
-          placeholder="email"
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <br />
-        <input
-          placeholder="password"
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <br />
         <label>
+          Email
+          <input
+            placeholder="email"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </label>
+        <label>
+          Password
+          <input
+            placeholder="password"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </label>
+        <span>
           <input
             type="checkbox"
             checked={remember}
             onChange={() => setRemember(!remember)}
           />
           Remember Me
-        </label>
-        <br />
+        </span>
         <button className="primary-btn">Login</button>
       </form>
       <div className="links-container">

@@ -1,0 +1,118 @@
+#CoursesPage {
+  .Hero {
+    height: calc(100vh - 60px);
+    background: linear-gradient(
+        rgba(255, 246, 243, 0.7),
+        rgba(255, 246, 243, 0.7)
+      ),
+      url("../../assets/images/student-hero-img.png") center no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-large;
+    h1 {
+      color: $pinkColor;
+      width: 305px;
+      text-align: center;
+    }
+    p {
+      width: 305px;
+    }
+  }
+  .courses-container {
+    background-color: $babyBlueColor;
+    padding: 2rem;
+    header {
+      max-width: 305px;
+      display: flex;
+      margin: auto;
+      align-items: center;
+      h2 {
+        width: 180px;
+      }
+      img {
+        width: 90px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+.courses-list {
+  display: flex;
+  gap: $spacing-medium;
+  margin-top: $spacing-large;
+  flex-wrap: wrap;
+  justify-content: center;
+  .course-item {
+    background-color: $lightOrangeColor;
+    box-shadow: 5px 5px $orangeColor;
+    border-radius: 20px;
+    width: 305px;
+    text-align: center;
+    padding: 1.5rem;
+    img {
+      height: 120px;
+      margin-bottom: $spacing-small;
+    }
+    h2 {
+      margin-bottom: $spacing-xsmall;
+    }
+    button {
+      margin: $spacing-medium auto 0;
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  #CoursesPage {
+    .Hero {
+      min-height: calc(100vh);
+      background: url("../../assets/images/student-hero-img.png") 95% no-repeat
+        $lightPinkColor;
+      background-size: auto;
+      padding-left: 10%;
+      align-items: flex-start;
+      h1 {
+        max-width: 850px;
+        width: 40%;
+        text-align: left;
+      }
+      p {
+        max-width: 850px;
+        width: 40%;
+      }
+    }
+    .courses-container {
+      background-color: $babyBlueColor;
+      padding: 4rem;
+      header {
+        max-width: 850px;
+        justify-content: space-between;
+        img {
+          width: 300px;
+        }
+      }
+    }
+  }
+
+  .courses-list {
+    margin: $spacing-xlarge auto;
+    gap: 3rem;
+    max-width: 850px;
+    .course-item {
+      width: 400px;
+      img {
+        height: 170px;
+        margin-bottom: $spacing-medium;
+      }
+      h2 {
+        margin-bottom: $spacing-small;
+      }
+      button {
+        margin: $spacing-large auto 0;
+      }
+    }
+  }
+}

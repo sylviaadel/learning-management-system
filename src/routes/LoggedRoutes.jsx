@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Secret from "../pages/SecretPage";
+import ViewCourses from "../pages/ViewCourses";
 
 export default function LoggedRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Secret />} />
-      <Route path="/secret-page" element={<Secret />} />
+      <Route path="/" element={<ViewCourses />} />
+      <Route path="/view-courses" element={<ViewCourses />} />
     </Routes>
   );
 }

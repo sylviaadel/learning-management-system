@@ -4,6 +4,9 @@
   width: 100%;
   position: fixed;
   bottom: 0;
+  & + * {
+    margin-bottom: 60px;
+  }
   ul {
     display: flex;
     li {
@@ -56,6 +59,7 @@
     transition: width 200ms ease;
     & + * {
       margin-left: 100px;
+      margin-bottom: 0;
     }
     &:hover {
       width: 350px;

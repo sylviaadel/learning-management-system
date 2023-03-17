@@ -6,7 +6,6 @@ export async function createAccount(email, password) {
   let result = { status: false, payload: "", message: "" };
 
   try {
-    debugger;
     const data = await createUserWithEmailAndPassword(auth, email, password);
     result = { status: true, payload: data.user.uid, message: "User Created!" };
     const docRef = doc(database, "users", data.user.uid);
@@ -14,8 +13,6 @@ export async function createAccount(email, password) {
       name: data.user.email,
       isTeacher: false,
     });
-
-    console.log(document);
   } catch (error) {
     result.message = error.code;
   }

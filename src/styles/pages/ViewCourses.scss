@@ -69,7 +69,8 @@
   #CoursesPage {
     .Hero {
       min-height: calc(100vh);
-      background: url("../../assets/images/student-hero-img.png") 95% no-repeat;
+      background: url("../../assets/images/student-hero-img.png") 95% no-repeat
+        $lightPinkColor;
       background-size: auto;
       padding-left: 10%;
       align-items: flex-start;

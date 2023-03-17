@@ -8,7 +8,7 @@ export default function RecoverPassowrd() {
   async function onSubmit(event) {
     event.preventDefault();
     const result = await recoverAccount(email);
-    result.status ? onSuccess(result) : onFailure(result);
+    result.status ? onSuccess(result) : onFail(result);
   }
 
   function onSuccess(result) {
@@ -17,7 +17,7 @@ export default function RecoverPassowrd() {
     alert(message);
   }
 
-  function onFailure(result) {
+  function onFail(result) {
     alert(result.message);
   }
 

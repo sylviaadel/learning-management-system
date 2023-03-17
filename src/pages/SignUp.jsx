@@ -21,7 +21,7 @@ export default function SignUp() {
       saveUID(result.payload);
     }
     setUid(result.payload);
-    navigate("/secret-page");
+    navigate("/view-courses");
   }
 
   function onFailure(result) {

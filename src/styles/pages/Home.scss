@@ -1,6 +1,6 @@
 #Home {
   .Hero {
-    height: calc(100vh);
+    min-height: calc(100vh - 60px);
     background: linear-gradient(
         rgba(255, 246, 243, 0.7),
         rgba(255, 246, 243, 0.7)
@@ -25,9 +25,10 @@
 @media (min-width: 860px) {
   #Home {
     .Hero {
+      min-height: calc(100vh);
       background: url("../../assets/images/main-bg.png") right;
       background-size: cover;
-      padding-left: 20%;
+      padding-left: 10%;
       align-items: flex-start;
       h1 {
         max-width: 850px;

@@ -36,8 +36,10 @@
       img {
         height: 45px;
       }
-      svg {
+      svg,
+      i {
         font-size: 30px;
+        color: $babyBlueColor;
         path {
           color: $babyBlueColor;
         }

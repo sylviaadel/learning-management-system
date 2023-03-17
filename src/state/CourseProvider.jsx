@@ -1,10 +1,12 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useReducer } from "react";
+import { coursesReducer } from "./CoursesReducer";
 
 const Context = createContext();
 
-export function UserProvider({ children, storageKey }) {
+export function CourseProvider({ children, storageKey }) {
+  const [data, dispatch] = useReducer(coursesReducer, []);
   const [uid, setUid] = useState(loadUID(storageKey));
-  const value = { uid, setUid, saveUID };
+  const values = { uid, setUid, saveUID, data, dispatch };
 
   function loadUID(storageKey) {
     const data = localStorage.getItem(storageKey);
@@ -15,10 +17,10 @@ export function UserProvider({ children, storageKey }) {
     localStorage.setItem(storageKey, uid);
   }
 
-  return <Context.Provider value={value}>{children}</Context.Provider>;
+  return <Context.Provider value={values}>{children}</Context.Provider>;
 }
 
-export function useUser() {
+export function useCourse() {
   const context = useContext(Context);
   if (!context) throw new Error("useUser() must be used within <UserProvider>");
 

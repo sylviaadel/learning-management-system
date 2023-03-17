@@ -1,14 +1,16 @@
-import Sewing from "../../assets/images/sewing.png";
-export default function CourseItem() {
+import { Link } from "react-router-dom";
+
+export default function CourseItem({ item, collectionName }) {
+  const { id, title, description, image } = item;
+
   return (
     <article className="course-item">
-      <img src={Sewing} alt="Sewing" />
-      <h2>Sewing</h2>
-      <p>
-        It doesn't have to be hard, it just takes practice and patience, but
-        soon you can be sewing like a pro.
-      </p>
-      <button className="primary-btn">View Details</button>
+      <img src={image} alt="Sewing" />
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <Link to={`/courses/${id}`} className="primary-btn">
+        View Details
+      </Link>
     </article>
   );
 }

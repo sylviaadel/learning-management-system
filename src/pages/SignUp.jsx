@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createAccount } from "../scripts/auth/createAccount";
-import { useUser } from "../state/UserState";
+import { useUser } from "../state/UserProvider";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export default function SignUp() {
   async function onSubmit(event) {
     event.preventDefault();
     const result = await createAccount(email, password);
-    result.status ? onSuccess(result) : onFailure(result);
+    result.status ? onSuccess(result) : onFail(result);
   }
 
   function onSuccess(result) {
@@ -21,10 +21,10 @@ export default function SignUp() {
       saveUID(result.payload);
     }
     setUid(result.payload);
-    navigate("/view-courses");
+    navigate("/courses");
   }
 
-  function onFailure(result) {
+  function onFail(result) {
     alert(result.message);
   }
 

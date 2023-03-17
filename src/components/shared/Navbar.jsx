@@ -1,7 +1,7 @@
 import logo from "../../assets/images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid, brands } from "@fortawesome/fontawesome-svg-core/import.macro";
-import { useUser } from "../../state/UserState";
+import { useUser } from "../../state/UserProvider";
 import { useNavigate } from "react-router";
 
 export default function Navbar() {

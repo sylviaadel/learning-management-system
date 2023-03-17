@@ -2,7 +2,7 @@ import Sewing from "../../assets/images/sewing.png";
 export default function CourseItem() {
   return (
     <article className="course-item">
-      <img src={Sewing} />
+      <img src={Sewing} alt="Sewing" />
       <h2>Sewing</h2>
       <p>
         It doesn't have to be hard, it just takes practice and patience, but

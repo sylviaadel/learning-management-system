@@ -2,14 +2,17 @@ import logo from "../../assets/images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid, brands } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useUser } from "../../state/UserState";
+import { useNavigate } from "react-router";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const { setUid, saveUID } = useUser();
   const logoAlt = "A mannequin with red dress and a pen beside it";
 
   function onLogout() {
     setUid("");
     saveUID("");
+    navigate("/");
   }
 
   return (

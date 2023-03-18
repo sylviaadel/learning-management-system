@@ -1,0 +1,184 @@
+#Admin {
+  padding: 2rem;
+  h1 {
+    color: $blueColor;
+    text-align: center;
+    margin-bottom: $spacing-large;
+  }
+  & > p {
+    max-width: 305px;
+    margin: auto;
+    text-align: justify;
+  }
+  .Tabs {
+    border: solid 3px $darkBlueColor;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    max-width: 305px;
+    margin: $spacing-large auto;
+    .tab {
+      background-color: $whiteColor;
+      color: $darkBlueColor;
+      height: 50px;
+      width: 50%;
+      text-align: center;
+      font-size: 16px;
+      padding-top: 12px;
+      display: inline-block;
+      cursor: pointer;
+      font-weight: bold;
+      &.active {
+        background-color: $darkBlueColor;
+        color: $whiteColor;
+      }
+      &:last-of-type {
+        border-top-right-radius: 6px;
+      }
+      &:first-of-type {
+        border-top-left-radius: 6px;
+      }
+    }
+    .tabs-content {
+      padding: $spacing-medium $spacing-xsmall;
+      background: $darkBlueColor;
+      section {
+        display: flex;
+        gap: $spacing-large;
+        flex-wrap: wrap;
+        justify-content: center;
+        .student-item {
+          background: url(../../assets/images/sticky-note.png) no-repeat center
+            center;
+          background-size: contain;
+          width: 280px;
+          height: 275px;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: $spacing-large;
+          .close {
+            background-color: $orangeColor;
+            color: $lightPinkColor;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            border: 0;
+            font-size: 28px;
+            line-height: 20px;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            text-align: center;
+          }
+          &.add-student {
+            i {
+              font-size: 80px;
+            }
+          }
+        }
+        &.courses-list {
+          .course-item {
+            width: 260px;
+            //height: 320px;
+            a {
+              display: none;
+            }
+            img {
+              margin-top: $spacing-medium;
+            }
+            p {
+              display: none;
+            }
+            button {
+              display: block;
+              margin: 24px auto 0;
+              i {
+                color: $whiteColor;
+              }
+              &.close {
+                background-color: $orangeColor;
+                color: $lightPinkColor;
+                border-radius: 50%;
+                width: 25px;
+                height: 25px;
+                border: 0;
+                font-size: 28px;
+                line-height: 20px;
+                position: absolute;
+                top: -10px;
+                right: 10px;
+                text-align: center;
+              }
+            }
+            &.add-course {
+              padding: 4rem;
+              font-size: 120px;
+              display: flex;
+              flex-direction: column;
+              gap: 32px;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  #Admin {
+    padding: 4rem;
+    & > p {
+      max-width: 850px;
+    }
+    .Tabs {
+      max-width: 850px;
+      margin: $spacing-xlarge auto;
+      .tab {
+        height: 85px;
+        font-size: 32px;
+        padding-top: 20px;
+      }
+      .tabs-content {
+        section {
+          .student-item {
+            width: 395px;
+            height: 400px;
+            .close {
+              width: 40px;
+              height: 40px;
+              font-size: 50px;
+              top: 46px;
+              right: 46px;
+            }
+            img {
+              width: 150px;
+            }
+            &.add-student {
+              i {
+                font-size: 130px;
+              }
+            }
+          }
+          &.courses-list {
+            .course-item {
+              width: 375px;
+              button.close {
+                width: 40px;
+                height: 40px;
+                font-size: 50px;
+                top: -10px;
+                right: 10px;
+              }
+              img {
+                margin-top: $spacing-xlarge;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

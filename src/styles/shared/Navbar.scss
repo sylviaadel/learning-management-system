@@ -5,7 +5,7 @@
   position: fixed;
   bottom: 0;
   z-index: 1;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 -5px 12px rgba(0, 0, 0, 0.12);
   & + * {
     margin-bottom: 60px;
   }
@@ -61,6 +61,7 @@
     width: 100px;
     height: calc(100vh);
     transition: width 200ms ease;
+    box-shadow: 0 -5px 12px rgba(0, 0, 0, 0.12);
     & + * {
       margin-left: 100px;
       margin-bottom: 0;

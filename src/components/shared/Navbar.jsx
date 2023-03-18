@@ -25,21 +25,23 @@ export default function Navbar() {
   ));
 
   return (
-    <ul id="Navbar">
-      <li>
-        <Link to="/">
-          <img src={logo} alt={logoAlt} />
-          <span className="link-text">Fabric Dreem</span>
-        </Link>
-      </li>
-      {Links}
-      <li className="login-btn" onClick={() => onChange()}>
-        <i className="fa-solid fa-user"></i>
-        <span className="link-text">{uid ? "Logout" : "Login"}</span>
-      </li>
-      <li className="expand-btn">
-        <i className="fa-solid fa-angles-right"></i>
-      </li>
-    </ul>
+    <nav id="Navbar">
+      <ul id="Navbar">
+        <li>
+          <Link to="/">
+            <img src={logo} alt={logoAlt} />
+            <span className="link-text">Fabric Dreem</span>
+          </Link>
+        </li>
+        {Links}
+        <li className="login-btn" onClick={() => onChange()}>
+          <i className="fa-solid fa-user"></i>
+          <span className="link-text">{uid ? "Logout" : "Login"}</span>
+        </li>
+        <li className="expand-btn">
+          <i className="fa-solid fa-angles-right"></i>
+        </li>
+      </ul>
+    </nav>
   );
 }

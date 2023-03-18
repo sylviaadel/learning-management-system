@@ -52,6 +52,7 @@
     width: 305px;
     text-align: center;
     padding: 1.5rem;
+    position: relative;
     img {
       height: 120px;
       margin-bottom: $spacing-small;
@@ -59,8 +60,12 @@
     h2 {
       margin-bottom: $spacing-xsmall;
     }
-    .primary-btn {
+    a.primary-btn {
       margin: $spacing-medium auto 0;
+    }
+    button,
+    .close {
+      display: none;
     }
   }
 }

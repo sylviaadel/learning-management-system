@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import sewing from "../assets/images/sewing.png";
 import { useCourse } from "../state/CourseProvider";
 import { readDocuments } from "../scripts/fireStore/readDocuments";
 import Spinner from "../components/shared/Spinner";

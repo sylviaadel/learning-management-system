@@ -5,7 +5,7 @@ export default function CourseItem({ item, collectionName }) {
 
   return (
     <article className="course-item">
-      <button className"close">&times;</button>
+      <button className="close">&times;</button>
       <img src={image} alt="Sewing" />
       <h2>{title}</h2>
       <p>{description}</p>

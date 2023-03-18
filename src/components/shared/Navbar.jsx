@@ -3,45 +3,43 @@ import { useUser } from "../../state/UserProvider";
 import { useNavigate } from "react-router";
 import navLinks from "../../data/navLinks.json";
 import { Link } from "react-router-dom";
+import NavbarLink from "../navbar/NavbarLink";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const { setUid, saveUID } = useUser();
+  const { uid, setUid, saveUID } = useUser();
   const logoAlt = "A mannequin with red dress and a pen beside it";
 
-  function onLogout() {
-    setUid("");
-    saveUID("");
-    navigate("/");
+  function onChange() {
+    if (uid) {
+      setUid("");
+      saveUID("");
+      navigate("/");
+    } else {
+      navigate("/login");
+    }
   }
 
   const Links = navLinks.map((item) => (
-    <li key={item.title}>
-      <a href={item.link} target="_blank" rel="noreferrer">
-        <i className={item.icon}></i>
-        <span className="link-text">{item.title}</span>
-      </a>
-    </li>
+    <NavbarLink key={item.title} item={item} />
   ));
 
   return (
-    <nav id="Navbar">
-      <ul>
-        <li>
-          <Link to="/">
-            <img src={logo} alt={logoAlt} />
-            <span className="link-text">Fabric Dreem</span>
-          </Link>
-        </li>
-        {Links}
-        <li className="login-btn" onClick={() => onLogout()}>
-          <i className="fa-solid fa-user"></i>
-          <span className="link-text">Logout</span>
-        </li>
-        <li className="expand-btn">
-          <i className="fa-solid fa-angles-right"></i>
-        </li>
-      </ul>
-    </nav>
+    <ul id="Navbar">
+      <li>
+        <Link to="/">
+          <img src={logo} alt={logoAlt} />
+          <span className="link-text">Fabric Dreem</span>
+        </Link>
+      </li>
+      {Links}
+      <li className="login-btn" onClick={() => onChange()}>
+        <i className="fa-solid fa-user"></i>
+        <span className="link-text">{uid ? "Logout" : "Login"}</span>
+      </li>
+      <li className="expand-btn">
+        <i className="fa-solid fa-angles-right"></i>
+      </li>
+    </ul>
   );
 }

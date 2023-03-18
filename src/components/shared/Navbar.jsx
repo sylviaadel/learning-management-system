@@ -2,6 +2,7 @@ import logo from "../../assets/images/logo.png";
 import { useUser } from "../../state/UserProvider";
 import { useNavigate } from "react-router";
 import navLinks from "../../data/navLinks.json";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -27,8 +28,10 @@ export default function Navbar() {
     <nav id="Navbar">
       <ul>
         <li>
-          <img src={logo} alt={logoAlt} />
-          <span className="link-text">Fabric Dreem</span>
+          <Link to="/">
+            <img src={logo} alt={logoAlt} />
+            <span className="link-text">Fabric Dreem</span>
+          </Link>
         </li>
         {Links}
         <li className="login-btn" onClick={() => onLogout()}>

@@ -16,7 +16,7 @@
     border-top-left-radius: 10px;
     max-width: 305px;
     margin: $spacing-large auto;
-    span {
+    .tab {
       background-color: $darkBlueColor;
       height: 50px;
       width: 50%;
@@ -29,11 +29,45 @@
         background-color: $whiteColor;
         color: $darkBlueColor;
       }
-      &:last-child {
+      &:last-of-type {
         border-top-right-radius: 6px;
       }
-      &:first-child {
+      &:first-of-type {
         border-top-left-radius: 6px;
+      }
+    }
+    .tabs-content {
+      padding: $spacing-medium $spacing-xsmall;
+      section {
+        display: flex;
+        gap: $spacing-large;
+        flex-wrap: wrap;
+        .student-item {
+          background: url(../../assets/images/sticky-note.png) no-repeat center
+            center;
+          background-size: contain;
+          width: 280px;
+          height: 275px;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: $spacing-large;
+          .close {
+            background-color: $orangeColor;
+            color: $lightPinkColor;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            border: 0;
+            font-size: 28px;
+            line-height: 20px;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+          }
+        }
       }
     }
   }

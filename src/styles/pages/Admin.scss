@@ -5,7 +5,7 @@
     text-align: center;
     margin-bottom: $spacing-large;
   }
-  p {
+  & > p {
     max-width: 305px;
     margin: auto;
     text-align: justify;
@@ -25,6 +25,8 @@
       font-size: 16px;
       padding-top: 12px;
       display: inline-block;
+      cursor: pointer;
+      font-weight: bold;
       &.active {
         background-color: $whiteColor;
         color: $darkBlueColor;
@@ -42,6 +44,7 @@
         display: flex;
         gap: $spacing-large;
         flex-wrap: wrap;
+        justify-content: center;
         .student-item {
           background: url(../../assets/images/sticky-note.png) no-repeat center
             center;
@@ -66,6 +69,53 @@
             position: absolute;
             top: 30px;
             right: 30px;
+            text-align: center;
+          }
+          &.add-student {
+            i {
+              font-size: 80px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  #Admin {
+    padding: 4rem;
+    & > p {
+      max-width: 850px;
+    }
+    .Tabs {
+      max-width: 850px;
+      margin: $spacing-xlarge auto;
+      .tab {
+        height: 85px;
+        font-size: 32px;
+        padding-top: 20px;
+      }
+      .tabs-content {
+        section {
+          .student-item {
+            width: 395px;
+            height: 400px;
+            .close {
+              width: 40px;
+              height: 40px;
+              font-size: 50px;
+              top: 46px;
+              right: 46px;
+            }
+            img {
+              width: 150px;
+            }
+            &.add-student {
+              i {
+                font-size: 130px;
+              }
+            }
           }
         }
       }

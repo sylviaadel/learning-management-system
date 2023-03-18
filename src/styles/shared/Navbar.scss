@@ -113,6 +113,10 @@
         }
         &.expand-btn {
           display: flex;
+          cursor: default;
+          &:hover {
+            background: initial;
+          }
         }
       }
     }

@@ -30,7 +30,7 @@ export default function ManageStudents() {
 
   const Users = data.map((user) => (
     <div className="student-item">
-      <button class="close">&times;</button>
+      <button className"close">&times;</button>
       <img src={userGirl} alt={user.name} />
       <h3>{user.name}</h3>
     </div>

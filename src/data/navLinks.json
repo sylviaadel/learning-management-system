@@ -2,11 +2,11 @@
   {
     "title": "Check Calendar",
     "icon": "fa-solid fa-calendar-days",
-    "linl": "https://calendar.google.com/calendar/u/0/r"
+    "link": "https://calendar.google.com/calendar/u/0/r"
   },
   {
     "title": "Open Slack",
     "icon": "fa-brands fa-slack",
-    "linl": "https://slack.com/"
+    "link": "https://slack.com/"
   }
 ]

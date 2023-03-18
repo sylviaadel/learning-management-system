@@ -1,0 +1,13 @@
+#Admin {
+  padding: 2rem;
+  h1 {
+    color: $blueColor;
+    text-align: center;
+    margin-bottom: $spacing-large;
+  }
+  p {
+    max-width: 305px;
+    margin: auto;
+    text-align: justify;
+  }
+}

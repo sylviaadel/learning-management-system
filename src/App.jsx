@@ -1,7 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
 import "./styles/style.scss";
 import Navbar from "./components/shared/Navbar";
-import LoggedRoutes from "./routes/LoggedRoutes";
+// import StudentRoutes from "./routes/StudentRoutes";
+import TeacherRoutes from "./routes/TeacherRoutes";
 import UnloggedRoutes from "./routes/UnloggedRoutes";
 import { useUser } from "./state/UserProvider";
 
@@ -12,7 +13,7 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        {uid ? <LoggedRoutes /> : <UnloggedRoutes />}
+        {uid ? <TeacherRoutes /> : <UnloggedRoutes />}
       </BrowserRouter>
     </div>
   );

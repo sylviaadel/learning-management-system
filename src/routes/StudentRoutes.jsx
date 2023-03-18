@@ -3,7 +3,7 @@ import CourseDetails from "../pages/CourseDetails";
 import ViewCourses from "../pages/ViewCourses";
 import NotFound from "../pages/NotFound";
 
-export default function LoggedRoutes() {
+export default function StudentRoutes() {
   const name = "courses";
   const path = "/courses/:id";
 

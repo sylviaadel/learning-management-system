@@ -16,7 +16,7 @@ export default function Navbar() {
 
   const Links = navLinks.map((item) => (
     <li key={item.title}>
-      <a href={item.link} target="_blank">
+      <a href={item.link} target="_blank" rel="noreferrer">
         <i className={item.icon}></i>
         <span className="link-text">{item.title}</span>
       </a>

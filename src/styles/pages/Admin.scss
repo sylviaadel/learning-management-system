@@ -10,4 +10,31 @@
     margin: auto;
     text-align: justify;
   }
+  .Tabs {
+    border: solid 3px $darkBlueColor;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    max-width: 305px;
+    margin: $spacing-large auto;
+    span {
+      background-color: $darkBlueColor;
+      height: 50px;
+      width: 50%;
+      color: $whiteColor;
+      text-align: center;
+      font-size: 16px;
+      padding-top: 12px;
+      display: inline-block;
+      &.active {
+        background-color: $whiteColor;
+        color: $darkBlueColor;
+      }
+      &:last-child {
+        border-top-right-radius: 6px;
+      }
+      &:first-child {
+        border-top-left-radius: 6px;
+      }
+    }
+  }
 }

@@ -14,20 +14,18 @@ export default function Tabs() {
 
   return (
     <div className="Tabs">
-      <ul className="nav">
-        <li
-          className={activeTab === "courses" ? "active" : ""}
-          onClick={openCourses}
-        >
-          Manage Courses
-        </li>
-        <li
-          className={activeTab === "students" ? "active" : ""}
-          onClick={openStudents}
-        >
-          Manage Students
-        </li>
-      </ul>
+      <span
+        className={activeTab === "courses" ? "active" : ""}
+        onClick={openCourses}
+      >
+        Manage Courses
+      </span>
+      <span
+        className={activeTab === "students" ? "active" : ""}
+        onClick={openStudents}
+      >
+        Manage Students
+      </span>
       <div className="tabs-content">
         {activeTab === "courses" ? <ManageCourses /> : <ManageStudents />}
       </div>

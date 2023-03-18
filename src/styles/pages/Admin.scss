@@ -73,6 +73,7 @@
             text-align: center;
           }
           &.add-student {
+            cursor: pointer;
             i {
               font-size: 80px;
             }
@@ -113,6 +114,7 @@
               }
             }
             &.add-course {
+              cursor: pointer;
               padding: 4rem;
               font-size: 120px;
               display: flex;
@@ -171,6 +173,7 @@
                 font-size: 50px;
                 top: -10px;
                 right: 10px;
+                line-height: 18px;
               }
               img {
                 margin-top: $spacing-xlarge;

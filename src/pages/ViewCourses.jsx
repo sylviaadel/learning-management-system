@@ -9,7 +9,7 @@ import coursesImg from "../assets/images/courses-img.png";
 
 export default function ViewCourses({ collection }) {
   const alt =
-    "Clothes hanged on dressing along with shoes on ground and plates.";
+    "Clothes hanged on dressing along with shoes on ground and plants.";
   const { data, dispatch } = useCourse();
   const [status, setStatus] = useState(0);
 

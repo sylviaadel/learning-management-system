@@ -4,17 +4,25 @@ import { useNavigate } from "react-router";
 import navLinks from "../../data/navLinks.json";
 import { Link } from "react-router-dom";
 import NavbarLink from "../navbar/NavbarLink";
+import ConfirmLogout from "../auth/ConfirmLogout";
+import Modal from "../admin/Modal";
+import { useState } from "react";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const { uid, setUid, saveUID } = useUser();
+  const [modal, setModal] = useState(null);
   const logoAlt = "A mannequin with red dress and a pen beside it";
+
+  function logoutUser() {
+    setUid("");
+    saveUID("");
+    navigate("/");
+  }
 
   function onChange() {
     if (uid) {
-      setUid("");
-      saveUID("");
-      navigate("/");
+      setModal(<ConfirmLogout setModal={setModal} onLogout={logoutUser} />);
     } else {
       navigate("/login");
     }
@@ -42,6 +50,7 @@ export default function Navbar() {
           <i className="fa-solid fa-angles-right"></i>
         </li>
       </ul>
+      <Modal state={[modal, setModal]} />
     </nav>
   );
 }

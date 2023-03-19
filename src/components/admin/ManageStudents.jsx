@@ -3,14 +3,12 @@ import { readStudents } from "../../scripts/fireStore/readStudents";
 import { useUser } from "../../state/UserProvider";
 import Spinner from "../shared/Spinner";
 import NotFound from "../../pages/NotFound";
-import userGirl from "../../assets/images/user-girl.svg";
-import ConfirmDelete from "./ConfirmDelete";
+import StudentItem from "./StudentItem";
 
-export default function ManageStudents({ setModal }) {
+export default function ManageStudents({ setModal, collectionName }) {
   const { data, dispatch } = useUser();
   const [status, setStatus] = useState(0);
   const collection = "users";
-  const header = "Add New Student";
 
   useEffect(() => {
     loadData(collection);
@@ -31,18 +29,12 @@ export default function ManageStudents({ setModal }) {
   }
 
   const Users = data.map((user) => (
-    <div className="student-item">
-      <button
-        className="close"
-        onClick={() =>
-          setModal(<ConfirmDelete setModal={setModal} header={header} />)
-        }
-      >
-        &times;
-      </button>
-      <img src={userGirl} alt={user.name} />
-      <h3>{user.name}</h3>
-    </div>
+    <StudentItem
+      key={user.id}
+      item={user}
+      collectionName={collection}
+      setModal={setModal}
+    />
   ));
 
   return (

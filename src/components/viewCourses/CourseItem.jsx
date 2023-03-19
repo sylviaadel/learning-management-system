@@ -4,16 +4,13 @@ import { useCourse } from "../../state/CourseProvider";
 import ConfirmDelete from "../admin/ConfirmDelete";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 
-export default function CourseItem({ item, setModal }) {
+export default function CourseItem({ item, setModal, collectionName }) {
   const { id, title, description, image } = item;
   const { dispatch } = useCourse();
   const header = "Update Course Details";
-  const collectionName = "courses";
 
   function confirmDelete() {
-    setModal(
-      <ConfirmDelete setModal={setModal} onConfirmDelete={deleteCourse} />
-    );
+    setModal(<ConfirmDelete setModal={setModal} onDelete={deleteCourse} />);
   }
   async function deleteCourse() {
     await deleteDocument(collectionName, id);

@@ -1,6 +1,6 @@
-export default function ConfirmDelete({ setModal, onConfirmDelete }) {
-  function confirm() {
-    onConfirmDelete();
+export default function ConfirmDelete({ setModal, onDelete }) {
+  function confirmDelete() {
+    onDelete();
     setModal(null);
   }
 
@@ -9,7 +9,7 @@ export default function ConfirmDelete({ setModal, onConfirmDelete }) {
       <h2>Confirmation</h2>
       <p>Are you sure you want to delete this item?</p>
       <div className="modal-footer">
-        <button className="primary-btn" onClick={confirm}>
+        <button className="primary-btn" onClick={confirmDelete}>
           Delete
         </button>
       </div>

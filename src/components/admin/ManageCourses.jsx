@@ -30,7 +30,12 @@ export default function ManageCourses({ setModal }) {
   }
 
   const Courses = data.map((item) => (
-    <CourseItem key={item.id} item={item} setModal={setModal} />
+    <CourseItem
+      key={item.id}
+      item={item}
+      setModal={setModal}
+      collectionName={collection}
+    />
   ));
 
   return (

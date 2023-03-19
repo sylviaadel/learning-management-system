@@ -1,8 +1,10 @@
 import { useState } from "react";
 import ManageCourses from "./ManageCourses";
 import ManageStudents from "./ManageStudents";
+import Modal from "./Modal";
 
 export default function Tabs() {
+  const [modal, setModal] = useState(null);
   const [activeTab, setActiveTab] = useState("courses");
 
   function openCourses() {
@@ -27,8 +29,13 @@ export default function Tabs() {
         Manage Students
       </span>
       <div className="tabs-content">
-        {activeTab === "courses" ? <ManageCourses /> : <ManageStudents />}
+        {activeTab === "courses" ? (
+          <ManageCourses setModal={setModal} />
+        ) : (
+          <ManageStudents setModal={setModal} />
+        )}
       </div>
+      <Modal state={[modal, setModal]} />
     </div>
   );
 }

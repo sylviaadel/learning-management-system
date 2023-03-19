@@ -10,6 +10,7 @@ export default function ManageCourses({ setModal }) {
   const { data, dispatch } = useCourse();
   const [status, setStatus] = useState(0);
   const collection = "courses";
+  const header = "Add new Course";
 
   useEffect(() => {
     loadData(collection);
@@ -29,7 +30,7 @@ export default function ManageCourses({ setModal }) {
   }
 
   const Courses = data.map((item) => (
-    <CourseItem key={item.id} item={item} collectionName={collection} />
+    <CourseItem key={item.id} item={item} setModal={setModal} />
   ));
 
   return (
@@ -39,7 +40,9 @@ export default function ManageCourses({ setModal }) {
       {status === 2 && <NotFound />}
       <div
         className="course-item add-course"
-        onClick={() => setModal(<AddCourseForm setModal={setModal} />)}
+        onClick={() =>
+          setModal(<AddCourseForm setModal={setModal} header={header} />)
+        }
       >
         <i className="fa-solid fa-circle-plus"></i>
         <h3>ADD NEW</h3>

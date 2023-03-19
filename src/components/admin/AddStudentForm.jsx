@@ -1,10 +1,11 @@
-export default function AddStudentForm({ setModal }) {
+export default function AddStudentForm({ setModal, header }) {
   function onSubmit(e) {
     setModal(null);
   }
 
   return (
     <form onSubmit={(e) => onSubmit(e)}>
+      <h2>{header}</h2>
       <label>
         Name
         <input required autoFocus type="text" />

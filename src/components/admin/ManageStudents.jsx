@@ -10,6 +10,7 @@ export default function ManageStudents({ setModal }) {
   const { data, dispatch } = useUser();
   const [status, setStatus] = useState(0);
   const collection = "users";
+  const header = "Add New Student";
 
   useEffect(() => {
     loadData(collection);
@@ -44,7 +45,9 @@ export default function ManageStudents({ setModal }) {
       {status === 2 && <NotFound />}
       <div
         className="student-item add-student"
-        onClick={() => setModal(<AddStudentForm setModal={setModal} />)}
+        onClick={() =>
+          setModal(<AddStudentForm setModal={setModal} header={header} />)
+        }
       >
         <i className="fa-solid fa-circle-plus"></i>
         <h3>ADD NEW</h3>

@@ -1,24 +1,25 @@
 import fileIcon from "../../assets/images/file-icon.png";
 import linkIcon from "../../assets/images/link-icon.png";
 
-export default function AddCourseForm({ setModal }) {
+export default function AddCourseForm({ setModal, header }) {
   function onSubmit(e) {
     setModal(null);
   }
 
   return (
     <form onSubmit={(e) => onSubmit(e)}>
+      <h2>{header}</h2>
       <label>
         Title
         <input required autoFocus type="text" />
       </label>
       <label>
         Description
-        <textarea />
+        <textarea required />
       </label>
       <label>
         Choose Image
-        <input type="file" />
+        <input required type="file" />
       </label>
       <h3>
         Files

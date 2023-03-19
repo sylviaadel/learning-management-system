@@ -15,6 +15,7 @@ export default function ManageCourses({ setModal }) {
   useEffect(() => {
     loadData(collection);
   }, []);
+
   async function loadData(collection) {
     const data = await readDocuments(collection).catch(onFail);
     onSuccess(data);
@@ -30,12 +31,7 @@ export default function ManageCourses({ setModal }) {
   }
 
   const Courses = data.map((item) => (
-    <CourseItem
-      key={item.id}
-      item={item}
-      setModal={setModal}
-      collectionName={collection}
-    />
+    <CourseItem key={item.id} item={item} setModal={setModal} />
   ));
 
   return (

@@ -43,7 +43,7 @@ export default function ViewCourses({ collection }) {
           <img src={coursesImg} alt={alt} />
         </header>
         {status === 0 && <Spinner />}
-        {status === 1 && <div className="courses-list">{Courses}</div>}
+        {status === 1 && <section className="courses-list">{Courses}</section>}
         {status === 2 && <NotFound />}
       </section>
     </div>

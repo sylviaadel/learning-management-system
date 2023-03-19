@@ -34,10 +34,10 @@ export default function CourseDetails({ collection }) {
   }
 
   return (
-    <>
+    <div id="CourseDetails">
       {status === 0 && <Spinner />}
       {status === 1 && (
-        <div id="CourseDetails">
+        <>
           <h1>{currentCourse.title}</h1>
           <header>
             <p>{currentCourse.description}</p>
@@ -70,9 +70,9 @@ export default function CourseDetails({ collection }) {
           <Link to="/courses" className="primary-btn">
             Back
           </Link>
-        </div>
+        </>
       )}
       {status === 2 && <InvalidID />}
-    </>
+    </div>
   );
 }

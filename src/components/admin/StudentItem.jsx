@@ -3,13 +3,15 @@ import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 import { useUser } from "../../state/UsersProvider";
 import userGirl from "../../assets/images/user-girl.svg";
 
-export default function StudentItem({ item, collectionName, setModal }) {
+export default function StudentItem({ item, setModal }) {
   const { id, name } = item;
   const { dispatch } = useUser();
+  const collectionName = "users";
 
   function confirmDelete() {
     setModal(<ConfirmDelete setModal={setModal} onDelete={deleteUser} />);
   }
+
   async function deleteUser() {
     await deleteDocument(collectionName, id);
     dispatch({ type: "delete", payload: id });

@@ -5,7 +5,7 @@ import Spinner from "../shared/Spinner";
 import NotFound from "../../pages/NotFound";
 import StudentItem from "./StudentItem";
 
-export default function ManageStudents({ setModal, collectionName }) {
+export default function ManageStudents({ setModal }) {
   const { data, dispatch } = useUser();
   const [status, setStatus] = useState(0);
   const collection = "users";
@@ -29,12 +29,7 @@ export default function ManageStudents({ setModal, collectionName }) {
   }
 
   const Users = data.map((user) => (
-    <StudentItem
-      key={user.id}
-      item={user}
-      collectionName={collection}
-      setModal={setModal}
-    />
+    <StudentItem key={user.id} item={user} setModal={setModal} />
   ));
 
   return (

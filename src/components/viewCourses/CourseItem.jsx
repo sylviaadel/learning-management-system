@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import AddCourseForm from "../admin/AddCourseForm";
 import { useCourse } from "../../state/CourseProvider";
 import ConfirmDelete from "../admin/ConfirmDelete";
+import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 
 export default function CourseItem({ item, setModal }) {
   const { id, title, description, image } = item;
@@ -9,14 +10,19 @@ export default function CourseItem({ item, setModal }) {
   const header = "Update Course Details";
   const collectionName = "courses";
 
+  function confirmDelete() {
+    setModal(
+      <ConfirmDelete setModal={setModal} onConfirmDelete={deleteCourse} />
+    );
+  }
+  async function deleteCourse() {
+    await deleteDocument(collectionName, id);
+    dispatch({ type: "delete", payload: id });
+  }
+
   return (
     <article className="course-item">
-      <button
-        className="close"
-        onClick={() =>
-          setModal(<ConfirmDelete setModal={setModal} header={header} />)
-        }
-      >
+      <button className="close" onClick={() => confirmDelete()}>
         &times;
       </button>
       <img src={image} alt="Sewing" />

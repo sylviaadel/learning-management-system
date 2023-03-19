@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
 import AddCourseForm from "../admin/AddCourseForm";
+import { useCourse } from "../../state/CourseProvider";
+import ConfirmDelete from "../admin/ConfirmDelete";
 
 export default function CourseItem({ item, setModal }) {
   const { id, title, description, image } = item;
+  const { dispatch } = useCourse();
   const header = "Update Course Details";
+  const collectionName = "courses";
 
   return (
     <article className="course-item">
-      <button className="close">&times;</button>
+      <button
+        className="close"
+        onClick={() =>
+          setModal(<ConfirmDelete setModal={setModal} header={header} />)
+        }
+      >
+        &times;
+      </button>
       <img src={image} alt="Sewing" />
       <h2>{title}</h2>
       <p>{description}</p>

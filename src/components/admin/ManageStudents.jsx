@@ -5,6 +5,7 @@ import Spinner from "../shared/Spinner";
 import NotFound from "../../pages/NotFound";
 import userGirl from "../../assets/images/user-girl.svg";
 import AddStudentForm from "./AddStudentForm";
+import ConfirmDelete from "./ConfirmDelete";
 
 export default function ManageStudents({ setModal }) {
   const { data, dispatch } = useUser();
@@ -32,7 +33,14 @@ export default function ManageStudents({ setModal }) {
 
   const Users = data.map((user) => (
     <div className="student-item">
-      <button className="close">&times;</button>
+      <button
+        className="close"
+        onClick={() =>
+          setModal(<ConfirmDelete setModal={setModal} header={header} />)
+        }
+      >
+        &times;
+      </button>
       <img src={userGirl} alt={user.name} />
       <h3>{user.name}</h3>
     </div>

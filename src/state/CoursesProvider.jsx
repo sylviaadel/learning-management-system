@@ -1,10 +1,10 @@
 import { createContext, useContext, useState, useReducer } from "react";
-import { usersReducer } from "./UsersReducer";
+import { coursesReducer } from "./CoursesReducer";
 
 const Context = createContext();
 
-export function UserProvider({ children, storageKey }) {
-  const [data, dispatch] = useReducer(usersReducer, []);
+export function CoursesProvider({ children, storageKey }) {
+  const [data, dispatch] = useReducer(coursesReducer, []);
   const [uid, setUid] = useState(loadUID(storageKey));
   const values = { uid, setUid, saveUID, data, dispatch };
 
@@ -20,7 +20,7 @@ export function UserProvider({ children, storageKey }) {
   return <Context.Provider value={values}>{children}</Context.Provider>;
 }
 
-export function useUser() {
+export function useCourse() {
   const context = useContext(Context);
   if (!context) throw new Error("useUser() must be used within <UserProvider>");
 

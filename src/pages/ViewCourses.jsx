@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { readDocuments } from "../scripts/fireStore/readDocuments";
-import { useCourse } from "../state/CourseProvider";
+import { useCourse } from "../state/CoursesProvider";
 import CourseItem from "../components/viewCourses/CourseItem";
 import Hero from "../components/viewCourses/Hero";
 import Spinner from "../components/shared/Spinner";

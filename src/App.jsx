@@ -5,7 +5,7 @@ import Navbar from "./components/shared/Navbar";
 import StudentRoutes from "./routes/StudentRoutes";
 import TeacherRoutes from "./routes/TeacherRoutes";
 import UnloggedRoutes from "./routes/UnloggedRoutes";
-import { useUser } from "./state/UserProvider";
+import { useUser } from "./state/UsersProvider";
 import { readDocuments } from "./scripts/fireStore/readDocuments";
 //import { readStudents } from "./scripts/fireStore/readStudents";
 

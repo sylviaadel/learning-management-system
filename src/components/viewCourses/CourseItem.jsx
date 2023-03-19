@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import AddCourseForm from "../admin/AddCourseForm";
-import { useCourse } from "../../state/CourseProvider";
+import { useCourse } from "../../state/CoursesProvider";
 import ConfirmDelete from "../admin/ConfirmDelete";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 

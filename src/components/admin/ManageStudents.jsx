@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { readStudents } from "../../scripts/fireStore/readStudents";
-import { useUser } from "../../state/UserProvider";
+import { useUser } from "../../state/UsersProvider";
 import Spinner from "../shared/Spinner";
 import NotFound from "../../pages/NotFound";
 import StudentItem from "./StudentItem";

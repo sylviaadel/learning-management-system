@@ -1,6 +1,6 @@
 import ConfirmDelete from "./ConfirmDelete";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
-import { useUser } from "../../state/UserProvider";
+import { useUser } from "../../state/UsersProvider";
 import userGirl from "../../assets/images/user-girl.svg";
 
 export default function StudentItem({ item, collectionName, setModal }) {

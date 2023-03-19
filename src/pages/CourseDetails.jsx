@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useCourse } from "../state/CourseProvider";
+import { useCourse } from "../state/CoursesProvider";
 import { readDocuments } from "../scripts/fireStore/readDocuments";
 import Spinner from "../components/shared/Spinner";
 import InvalidID from "../components/shared/InvalidID";

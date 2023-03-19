@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { CourseProvider } from "./state/CourseProvider";
-import { UserProvider } from "./state/UserProvider";
+import { CoursesProvider } from "./state/CoursesProvider";
+import { UsersProvider } from "./state/UsersProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <UserProvider storageKey="user-uid">
-      <CourseProvider>
+    <UsersProvider storageKey="user-uid">
+      <CoursesProvider>
         <App />
-      </CourseProvider>
-    </UserProvider>
+      </CoursesProvider>
+    </UsersProvider>
   </React.StrictMode>
 );

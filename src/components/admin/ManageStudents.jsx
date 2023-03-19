@@ -4,8 +4,9 @@ import { useUser } from "../../state/UserProvider";
 import Spinner from "../shared/Spinner";
 import NotFound from "../../pages/NotFound";
 import userGirl from "../../assets/images/user-girl.svg";
+import AddStudentForm from "./AddStudentForm";
 
-export default function ManageStudents() {
+export default function ManageStudents({ setModal }) {
   const { data, dispatch } = useUser();
   const [status, setStatus] = useState(0);
   const collection = "users";
@@ -41,7 +42,10 @@ export default function ManageStudents() {
       {status === 0 && <Spinner />}
       {status === 1 && <>{Users}</>}
       {status === 2 && <NotFound />}
-      <div className="student-item add-student">
+      <div
+        className="student-item add-student"
+        onClick={() => setModal(<AddStudentForm setModal={setModal} />)}
+      >
         <i className="fa-solid fa-circle-plus"></i>
         <h3>ADD NEW</h3>
       </div>

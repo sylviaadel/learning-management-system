@@ -40,6 +40,7 @@
       input[type="text"],
       input[type="number"],
       input[type="file"],
+      input[type="email"],
       textarea {
         width: 100%;
         display: block;
@@ -104,6 +105,7 @@
           input[type="text"],
           input[type="number"],
           input[type="file"],
+          input[type="email"],
           textarea {
             height: 55px;
             padding: 0 16px;

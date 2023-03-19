@@ -11,6 +11,10 @@ export default function Modal({ state, header }) {
     <div id="Modal">
       <div className="modal-overlay" onClick={() => setModal(null)}></div>
       <div className="modal-content">
+        <button className="close" onClick={() => setModal(null)}>
+          {" "}
+          &times;
+        </button>
         {modal}
         <button className="link-btn" onClick={() => setModal(null)}>
           Cancel

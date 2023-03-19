@@ -4,7 +4,7 @@ import { useCourse } from "../../state/CoursesProvider";
 import Spinner from "../shared/Spinner";
 import NotFound from "../../pages/NotFound";
 import CourseItem from "../viewCourses/CourseItem";
-import AddCourseForm from "./AddCourseForm";
+import AddCourseForm from "../modal/AddCourseForm";
 
 export default function ManageCourses({ setModal }) {
   const { data, dispatch } = useCourse();

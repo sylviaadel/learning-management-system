@@ -1,4 +1,4 @@
-import ConfirmDelete from "./ConfirmDelete";
+import ConfirmDelete from "../modal/ConfirmDelete";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 import { useUser } from "../../state/UsersProvider";
 import userGirl from "../../assets/images/user-girl.svg";

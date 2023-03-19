@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ManageCourses from "./ManageCourses";
 import ManageStudents from "./ManageStudents";
-import Modal from "./Modal";
+import Modal from "../modal/Modal";
 
 export default function Tabs() {
   const [modal, setModal] = useState(null);

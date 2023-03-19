@@ -4,8 +4,8 @@ import { useNavigate } from "react-router";
 import navLinks from "../../data/navLinks.json";
 import { Link } from "react-router-dom";
 import NavbarLink from "../navbar/NavbarLink";
-import ConfirmLogout from "../auth/ConfirmLogout";
-import Modal from "../admin/Modal";
+import ConfirmLogout from "../modal/ConfirmLogout";
+import Modal from "../modal/Modal";
 import { useState } from "react";
 
 export default function Navbar() {

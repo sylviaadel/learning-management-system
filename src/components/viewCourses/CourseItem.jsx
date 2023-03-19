@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import AddCourseForm from "../admin/AddCourseForm";
+import AddCourseForm from "../modal/AddCourseForm";
 import { useCourse } from "../../state/CoursesProvider";
-import ConfirmDelete from "../admin/ConfirmDelete";
+import ConfirmDelete from "../modal/ConfirmDelete";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 
 export default function CourseItem({ item, setModal }) {

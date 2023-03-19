@@ -23,6 +23,20 @@
     max-height: calc(100vh - 180px);
     overflow: auto;
     z-index: 1;
+    .close {
+      background-color: $orangeColor;
+      color: $lightPinkColor;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      border: 0;
+      font-size: 28px;
+      line-height: 20px;
+      position: absolute;
+      top: $spacing-small;
+      right: $spacing-small;
+      text-align: center;
+    }
     h2 {
       font-size: 18px;
       text-align: left;

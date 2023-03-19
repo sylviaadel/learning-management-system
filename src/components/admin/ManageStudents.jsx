@@ -4,7 +4,6 @@ import { useUser } from "../../state/UserProvider";
 import Spinner from "../shared/Spinner";
 import NotFound from "../../pages/NotFound";
 import userGirl from "../../assets/images/user-girl.svg";
-import AddStudentForm from "./AddStudentForm";
 import ConfirmDelete from "./ConfirmDelete";
 
 export default function ManageStudents({ setModal }) {
@@ -51,15 +50,6 @@ export default function ManageStudents({ setModal }) {
       {status === 0 && <Spinner />}
       {status === 1 && <>{Users}</>}
       {status === 2 && <NotFound />}
-      <div
-        className="student-item add-student"
-        onClick={() =>
-          setModal(<AddStudentForm setModal={setModal} header={header} />)
-        }
-      >
-        <i className="fa-solid fa-circle-plus"></i>
-        <h3>ADD NEW</h3>
-      </div>
     </section>
   );
 }

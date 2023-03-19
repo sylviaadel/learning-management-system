@@ -1,0 +1,182 @@
+#Modal {
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.1s ease-in;
+    z-index: 1;
+  }
+  .modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    width: 320px;
+    text-align: center;
+    border-radius: 10px;
+    padding-bottom: 40px;
+    max-height: calc(100vh - 180px);
+    overflow: auto;
+    z-index: 1;
+    h2 {
+      font-size: 18px;
+      text-align: left;
+      border-bottom: solid 1px #eee;
+      padding: $spacing-small;
+      margin: 0 -16px;
+    }
+    .delete-item {
+      padding: 0 $spacing-small $spacing-small;
+      p {
+        margin-top: $spacing-medium;
+        text-align: left;
+      }
+      .modal-footer {
+        float: right;
+        padding: $spacing-medium $spacing-small 0;
+        display: flex;
+        justify-content: right;
+        gap: $spacing-medium;
+        align-items: center;
+        .modal-btn {
+          background-color: $orangeColor;
+          border-radius: 500px;
+          height: 30px;
+          color: $whiteColor;
+          font-size: 16px;
+          width: 70px;
+          border: 0;
+          justify-content: center;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+        }
+      }
+    }
+    form {
+      padding: 0 $spacing-small $spacing-small;
+      label {
+        display: block;
+        font-weight: bold;
+        text-align: left;
+        margin-top: $spacing-small;
+      }
+      input[type="text"],
+      input[type="number"],
+      input[type="file"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        display: block;
+        background-color: $lightOrangeColor;
+        height: 44px;
+        border-radius: 8px;
+        border: 0;
+        text-align: left;
+        padding: $spacing-small;
+        border: solid 1px $darkBlueColor;
+        margin-top: $spacing-xsmall;
+      }
+      input[type="file"] {
+        padding: 11px;
+      }
+      textarea {
+        height: 80px;
+      }
+      h3 {
+        margin: $spacing-medium 0 $spacing-xsmall;
+        text-align: left;
+        i {
+          float: right;
+          color: $blueColor;
+          font-size: 25px;
+        }
+        & + div {
+          display: flex;
+          gap: $spacing-small;
+          align-items: center;
+          img {
+            height: 25px;
+            & + div {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .primary-btn {
+        float: right;
+        margin-top: $spacing-medium;
+      }
+    }
+    .link-btn {
+      margin-top: $spacing-medium;
+      float: right;
+      margin-right: 22px;
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  #Modal {
+    .modal-content {
+      width: 750px;
+      padding-bottom: 60px;
+      h2 {
+        font-size: 30px;
+      }
+      form {
+        padding: 0 $spacing-medium $spacing-medium;
+        label {
+          font-size: 24px;
+          input[type="text"],
+          input[type="number"],
+          input[type="file"],
+          input[type="email"],
+          textarea {
+            height: 55px;
+            padding: 0 16px;
+            font-size: 20px;
+          }
+          textarea {
+            height: 120px;
+          }
+          input[type="file"] {
+            padding: 13px;
+          }
+        }
+        h3 {
+          i {
+            font-size: 40px;
+          }
+          & + div {
+            img {
+              width: 45px;
+              height: 45px;
+              & + div {
+                display: flex;
+                gap: $spacing-medium;
+                label {
+                  width: 50%;
+                }
+              }
+            }
+          }
+        }
+        .primary-btn {
+          margin-top: $spacing-xlarge;
+        }
+      }
+      .modal-footer {
+        padding: $spacing-large $spacing-medium 0 !important ;
+      }
+      .link-btn {
+        margin-top: 27px;
+      }
+    }
+  }
+}

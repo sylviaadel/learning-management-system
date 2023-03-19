@@ -4,11 +4,13 @@ import { useCourse } from "../../state/CourseProvider";
 import Spinner from "../shared/Spinner";
 import NotFound from "../../pages/NotFound";
 import CourseItem from "../viewCourses/CourseItem";
+import AddCourseForm from "./AddCourseForm";
 
-export default function ManageCourses() {
+export default function ManageCourses({ setModal }) {
   const { data, dispatch } = useCourse();
   const [status, setStatus] = useState(0);
   const collection = "courses";
+  const header = "Add new Course";
 
   useEffect(() => {
     loadData(collection);
@@ -28,7 +30,12 @@ export default function ManageCourses() {
   }
 
   const Courses = data.map((item) => (
-    <CourseItem key={item.id} item={item} collectionName={collection} />
+    <CourseItem
+      key={item.id}
+      item={item}
+      setModal={setModal}
+      collectionName={collection}
+    />
   ));
 
   return (
@@ -36,7 +43,12 @@ export default function ManageCourses() {
       {status === 0 && <Spinner />}
       {status === 1 && <>{Courses}</>}
       {status === 2 && <NotFound />}
-      <div className="course-item add-course">
+      <div
+        className="course-item add-course"
+        onClick={() =>
+          setModal(<AddCourseForm setModal={setModal} header={header} />)
+        }
+      >
         <i className="fa-solid fa-circle-plus"></i>
         <h3>ADD NEW</h3>
       </div>

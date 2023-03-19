@@ -20,6 +20,58 @@
       width: 305px;
     }
   }
+  .special-features {
+    background-color: $babyBlueColor;
+    padding: 2rem;
+    header {
+      max-width: 305px;
+      display: flex;
+      margin: auto;
+      align-items: center;
+      justify-content: space-between;
+      h2 {
+        width: 180px;
+      }
+      img {
+        width: 90px;
+        object-fit: cover;
+      }
+    }
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-medium;
+      justify-content: center;
+      margin-top: $spacing-large;
+      max-width: 305px;
+      align-items: center;
+      margin: $spacing-large auto;
+    }
+    .special-item {
+      background: url(../../assets/images/sticky-note.png) no-repeat center
+        center;
+      background-size: contain;
+      width: 280px;
+      height: 275px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: $spacing-large;
+      img {
+        width: 40px;
+        position: absolute;
+        top: 40px;
+        left: 40px;
+      }
+      p {
+        width: 155px;
+        text-align: center;
+        margin-top: $spacing-large;
+      }
+    }
+  }
 }
 
 @media (min-width: 860px) {
@@ -37,6 +89,37 @@
       p {
         max-width: 850px;
         width: 50%;
+      }
+    }
+    .special-features {
+      background-color: $babyBlueColor;
+      padding: 4rem;
+      header {
+        max-width: 850px;
+        justify-content: space-between;
+        h2 {
+          width: 330px;
+        }
+        img {
+          width: 300px;
+        }
+      }
+      div {
+        gap: $spacing-medium;
+        margin-top: $spacing-xlarge;
+        max-width: 925px;
+      }
+      .special-item {
+        width: 290px;
+        height: 280px;
+        img {
+          top: 40px;
+          left: 40px;
+          width: 40px;
+        }
+        p {
+          width: 225px;
+        }
       }
     }
   }

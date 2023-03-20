@@ -72,6 +72,9 @@
             right: 30px;
             text-align: center;
           }
+          h3 {
+            text-transform: capitalize;
+          }
           &.add-student {
             cursor: pointer;
             i {

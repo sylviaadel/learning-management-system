@@ -6,13 +6,14 @@ import { useUser } from "../state/UsersProvider";
 export default function SignUp() {
   const navigate = useNavigate();
   const { setUid, saveUID } = useUser();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
 
   async function onSubmit(event) {
     event.preventDefault();
-    const result = await createAccount(email, password);
+    const result = await createAccount(name, email, password);
     result.status ? onSuccess(result) : onFail(result);
   }
 
@@ -32,6 +33,15 @@ export default function SignUp() {
     <div className="auth-page">
       <h1>Create a new Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
+        <label>
+          Name
+          <input
+            placeholder="Name"
+            type="text"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+        </label>
         <label>
           Email
           <input

@@ -8,6 +8,7 @@ import UnloggedRoutes from "./routes/UnloggedRoutes";
 import { useUser } from "./state/UsersProvider";
 import { readDocuments } from "./scripts/fireStore/readDocuments";
 //import { readStudents } from "./scripts/fireStore/readStudents";
+import ScrollToTop from "./components/shared/ScrollToTop";
 
 export default function App() {
   const { uid, data, dispatch } = useUser();
@@ -41,10 +42,11 @@ export default function App() {
         {data.isTeacher ? (
           <StudentRoutes />
         ) : uid ? (
-          <TeacherRoutes />
+          <StudentRoutes />
         ) : (
           <UnloggedRoutes />
         )}
+        <ScrollToTop />
       </BrowserRouter>
     </div>
   );

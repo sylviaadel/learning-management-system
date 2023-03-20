@@ -16,7 +16,7 @@ export default function CourseDetails({ collection }) {
   }, []);
 
   async function loadData(collection) {
-    if (currentCourse == undefined) {
+    if (currentCourse === undefined) {
       setStatus(2);
     } else {
       const data = await readDocuments(collection).catch(onFail);

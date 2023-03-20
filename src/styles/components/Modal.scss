@@ -117,6 +117,10 @@
         display: flex;
         gap: $spacing-small;
         align-items: center;
+        background: $babyBlueColor;
+        border-radius: 10px;
+        padding: 0 $spacing-small $spacing-small;
+        margin-bottom: $spacing-small;
         img {
           height: 25px;
           & + div {

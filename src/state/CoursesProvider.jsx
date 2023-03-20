@@ -1,10 +1,10 @@
 import { createContext, useContext, useState, useReducer } from "react";
-import { coursesReducer } from "./CoursesReducer";
+import { ItemsReducer } from "./ItemsReducer";
 
 const Context = createContext();
 
 export function CoursesProvider({ children, storageKey }) {
-  const [data, dispatch] = useReducer(coursesReducer, []);
+  const [data, dispatch] = useReducer(ItemsReducer, []);
   const [uid, setUid] = useState(loadUID(storageKey));
   const values = { uid, setUid, saveUID, data, dispatch };
 

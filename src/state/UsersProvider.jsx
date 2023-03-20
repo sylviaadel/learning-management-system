@@ -1,10 +1,10 @@
 import { createContext, useContext, useState, useReducer } from "react";
-import { usersReducer } from "./UsersReducer";
+import { ItemsReducer } from "./ItemsReducer";
 
 const Context = createContext();
 
 export function UsersProvider({ children, storageKey }) {
-  const [data, dispatch] = useReducer(usersReducer, []);
+  const [data, dispatch] = useReducer(ItemsReducer, []);
   const [uid, setUid] = useState(loadUID(storageKey));
   const values = { uid, setUid, saveUID, data, dispatch };
 

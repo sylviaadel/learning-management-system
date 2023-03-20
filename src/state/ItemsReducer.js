@@ -1,4 +1,4 @@
-export function usersReducer(state, action) {
+export function ItemsReducer(state, action) {
   switch (action.type) {
     case "create":
       return onCreate(state, action);
@@ -12,8 +12,8 @@ export function usersReducer(state, action) {
 }
 
 function onCreate(state, action) {
-  const newUser = action.payload;
-  return [...state, newUser];
+  const newItem = action.payload;
+  return [...state, newItem];
 }
 
 function onDelete(state, action) {

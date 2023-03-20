@@ -36,16 +36,20 @@ export default function ViewCourses({ collection }) {
 
   return (
     <div id="CoursesPage">
-      <Hero />
-      <section className="courses-container">
-        <header>
-          <h2>Available Courses</h2>
-          <img src={coursesImg} alt={alt} />
-        </header>
-        {status === 0 && <Spinner />}
-        {status === 1 && <section className="courses-list">{Courses}</section>}
-        {status === 2 && <NotFound />}
-      </section>
+      {status === 0 && <Spinner />}
+      {status === 1 && (
+        <>
+          <Hero />
+          <section className="courses-container">
+            <header>
+              <h2>Available Courses</h2>
+              <img src={coursesImg} alt={alt} />
+            </header>
+            <section className="courses-list">{Courses}</section>
+          </section>
+        </>
+      )}
+      {status === 2 && <NotFound />}
     </div>
   );
 }

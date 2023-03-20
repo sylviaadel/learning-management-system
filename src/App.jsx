@@ -6,45 +6,43 @@ import StudentRoutes from "./routes/StudentRoutes";
 import TeacherRoutes from "./routes/TeacherRoutes";
 import UnloggedRoutes from "./routes/UnloggedRoutes";
 import { useUser } from "./state/UsersProvider";
-import { readDocuments } from "./scripts/fireStore/readDocuments";
-//import { readStudents } from "./scripts/fireStore/readStudents";
+import { readDocument } from "./scripts/fireStore/readDocument";
 import ScrollToTop from "./components/shared/ScrollToTop";
 
 export default function App() {
   const { uid, data, dispatch } = useUser();
   const [status, setStatus] = useState(0);
   const collection = "users";
+  const [loggedInUser, setloggedInUser] = useState(null);
 
   useEffect(() => {
     loadData(collection);
-  }, []);
+  }, [uid]);
 
   async function loadData(collection) {
-    const data = await readDocuments(collection).catch(onFail);
+    //debugger;
+    const data = await readDocument(collection, uid).catch(onFail);
     onSuccess(data);
   }
 
   function onSuccess(data) {
-    dispatch({ type: "initializeArray", payload: data });
-    setStatus(1);
+    setloggedInUser(data);
   }
 
   function onFail() {
     setStatus(2);
   }
-  const item = data?.filter((item) => item.id === uid);
-  // console.log(item);
 
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        {data.isTeacher ? (
-          <StudentRoutes />
-        ) : uid ? (
+        {uid === "" ? (
+          <UnloggedRoutes />
+        ) : !loggedInUser?.isTeacher ? (
           <StudentRoutes />
         ) : (
-          <UnloggedRoutes />
+          <TeacherRoutes />
         )}
         <ScrollToTop />
       </BrowserRouter>

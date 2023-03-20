@@ -1,7 +1,24 @@
-import fileIcon from "../../assets/images/file-icon.png";
-import linkIcon from "../../assets/images/link-icon.png";
+import { useState } from "react";
+import FileItem from "./FileItem";
+import LinkItem from "./LinkItem";
 
 export default function AddCourseForm({ setModal, header }) {
+  const fileItem = <FileItem />;
+  const linkItem = <LinkItem />;
+
+  const [files, setFiles] = useState([fileItem]);
+  const [links, setLinks] = useState([linkItem]);
+
+  function handleAddFile(e) {
+    e.preventDefault();
+    setFiles([...files, fileItem]);
+  }
+
+  function handleAddLink(e) {
+    e.preventDefault();
+    setLinks([...links, linkItem]);
+  }
+
   function onSubmit(e) {
     setModal(null);
   }
@@ -23,38 +40,14 @@ export default function AddCourseForm({ setModal, header }) {
       </label>
       <h3>
         Files
-        <i className="fa-solid fa-plus-circle"></i>
+        <i onClick={handleAddFile} className="fa-solid fa-plus-circle"></i>
       </h3>
-      <div>
-        <img src={fileIcon} alt="File icon" />
-        <div>
-          <label>
-            Title
-            <input type="text" />
-          </label>
-          <label>
-            Choose File
-            <input type="file" />
-          </label>
-        </div>
-      </div>
+      {files}
       <h3>
         Links
-        <i className="fa-solid fa-plus-circle"></i>
+        <i onClick={handleAddLink} className="fa-solid fa-plus-circle"></i>
       </h3>
-      <div>
-        <img src={linkIcon} alt="Link icon" />
-        <div>
-          <label>
-            Title
-            <input type="text" />
-          </label>
-          <label>
-            Link
-            <input type="text" />
-          </label>
-        </div>
-      </div>
+      {links}
       <button data-testid="submit-btn" className="primary-btn" type="submit">
         Submit
       </button>

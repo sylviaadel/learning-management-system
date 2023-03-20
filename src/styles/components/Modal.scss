@@ -109,16 +109,18 @@
           float: right;
           color: $blueColor;
           font-size: 25px;
+          cursor: pointer;
         }
-        & + div {
-          display: flex;
-          gap: $spacing-small;
-          align-items: center;
-          img {
-            height: 25px;
-            & + div {
-              width: 100%;
-            }
+      }
+      .file-item,
+      .link-item {
+        display: flex;
+        gap: $spacing-small;
+        align-items: center;
+        img {
+          height: 25px;
+          & + div {
+            width: 100%;
           }
         }
       }
@@ -167,16 +169,17 @@
           i {
             font-size: 40px;
           }
-          & + div {
-            img {
-              width: 45px;
-              height: 45px;
-              & + div {
-                display: flex;
-                gap: $spacing-medium;
-                label {
-                  width: 50%;
-                }
+        }
+        .file-item,
+        .link-item {
+          img {
+            width: 45px;
+            height: 45px;
+            & + div {
+              display: flex;
+              gap: $spacing-medium;
+              label {
+                width: 50%;
               }
             }
           }

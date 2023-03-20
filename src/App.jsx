@@ -42,7 +42,7 @@ export default function App() {
         {data.isTeacher ? (
           <StudentRoutes />
         ) : uid ? (
-          <StudentRoutes />
+          <TeacherRoutes />
         ) : (
           <UnloggedRoutes />
         )}

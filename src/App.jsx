@@ -33,7 +33,7 @@ export default function App() {
     setStatus(2);
   }
   const item = data?.filter((item) => item.id === uid);
-  console.log(item);
+  // console.log(item);
 
   return (
     <div className="App">
@@ -42,7 +42,7 @@ export default function App() {
         {data.isTeacher ? (
           <StudentRoutes />
         ) : uid ? (
-          <StudentRoutes />
+          <TeacherRoutes />
         ) : (
           <UnloggedRoutes />
         )}

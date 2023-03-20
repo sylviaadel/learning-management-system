@@ -1,9 +1,40 @@
-import fileIcon from "../../assets/images/file-icon.png";
-import linkIcon from "../../assets/images/link-icon.png";
+import { useState } from "react";
+import { createDocumentWithManualId } from "../../scripts/fireStore/createDocumentWithManualId";
+import { useCourse } from "../../state/CoursesProvider";
+import { downloadFile, uploadFile } from "../../scripts/cloudStorage";
+import { AddFiles } from "./AddMaterials";
+import { AddLinks } from "./AddMaterials";
+import { v4 as uuidv4 } from "uuid";
 
 export default function AddCourseForm({ setModal, header }) {
-  function onSubmit(e) {
+  const { dispatch } = useCourse();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  const collection = "courses";
+  const [buttonEnabled, setButtonEnabled] = useState(true);
+  const manualId = uuidv4() + "_" + Date.now();
+
+  async function onSubmit(e) {
+    const data = {
+      id: manualId,
+      title: title,
+      image: image,
+      description: description,
+    };
+    e.preventDefault();
+    await createDocumentWithManualId(collection, manualId, data);
+    dispatch({ type: "create", payload: data });
     setModal(null);
+  }
+
+  async function onChooseImage(event) {
+    const file = event.target.files[0];
+    const filePath = `courses/${manualId}_${file.name}`;
+    setButtonEnabled(false);
+    await uploadFile(file, filePath);
+    setImage(await downloadFile(filePath));
+    setButtonEnabled(true);
   }
 
   return (
@@ -11,51 +42,34 @@ export default function AddCourseForm({ setModal, header }) {
       <h2>{header}</h2>
       <label>
         Title
-        <input required autoFocus type="text" />
+        <input
+          required
+          autoFocus
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </label>
       <label>
         Description
-        <textarea required />
+        <textarea
+          required
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
       </label>
       <label>
         Choose Image
-        <input required type="file" />
+        <input
+          required
+          type="file"
+          accept="image/png, image/jpeg, image/webp"
+          onChange={(event) => onChooseImage(event)}
+        />
       </label>
-      <h3>
-        Files
-        <i className="fa-solid fa-plus-circle"></i>
-      </h3>
-      <div>
-        <img src={fileIcon} alt="File icon" />
-        <div>
-          <label>
-            Title
-            <input type="text" />
-          </label>
-          <label>
-            Choose File
-            <input type="file" />
-          </label>
-        </div>
-      </div>
-      <h3>
-        Links
-        <i className="fa-solid fa-plus-circle"></i>
-      </h3>
-      <div>
-        <img src={linkIcon} alt="Link icon" />
-        <div>
-          <label>
-            Title
-            <input type="text" />
-          </label>
-          <label>
-            Link
-            <input type="text" />
-          </label>
-        </div>
-      </div>
-      <button data-testid="submit-btn" className="primary-btn" type="submit">
+      <AddFiles />
+      <AddLinks />
+      <button disabled={!buttonEnabled} className="primary-btn">
         Submit
       </button>
     </form>

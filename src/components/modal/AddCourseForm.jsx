@@ -1,8 +1,16 @@
 import { useState } from "react";
 import FileItem from "./FileItem";
 import LinkItem from "./LinkItem";
+import { createDocument } from "../../scripts/fireStore/createDocument";
+import { useCourse } from "../../state/CoursesProvider";
+import { downloadFile, uploadFile } from "../../scripts/cloudStorage";
 
 export default function AddCourseForm({ setModal, header }) {
+  const { dispatch } = useCourse();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  const collection = "courses";
   const fileItem = <FileItem />;
   const linkItem = <LinkItem />;
 
@@ -19,8 +27,25 @@ export default function AddCourseForm({ setModal, header }) {
     setLinks([...links, linkItem]);
   }
 
-  function onSubmit(e) {
+  async function onSubmit(e) {
+    const data = {
+      title: title,
+      image: image,
+      description: description,
+    };
+    e.preventDefault();
+    const documentId = await createDocument(collection, data);
+    dispatch({ type: "create", payload: { id: documentId, ...data } });
     setModal(null);
+  }
+
+  async function onChangeImage(event) {
+    const file = event.target.files[0];
+    const filePath = "courses/" + file.name;
+    let result = "";
+    await uploadFile(file, filePath);
+    result = await downloadFile(filePath);
+    setImage(result);
   }
 
   return (
@@ -28,15 +53,30 @@ export default function AddCourseForm({ setModal, header }) {
       <h2>{header}</h2>
       <label>
         Title
-        <input required autoFocus type="text" />
+        <input
+          required
+          autoFocus
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </label>
       <label>
         Description
-        <textarea required />
+        <textarea
+          required
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
       </label>
       <label>
         Choose Image
-        <input required type="file" />
+        {/* <img src={image} alt="Image preview" /> */}
+        <input
+          type="file"
+          accept="image/png, image/jpeg, image/webp"
+          onChange={(event) => onChangeImage(event)}
+        />
       </label>
       <h3>
         Files

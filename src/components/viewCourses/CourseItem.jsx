@@ -28,7 +28,7 @@ export default function CourseItem({ item, setModal }) {
       <button className="close" onClick={() => confirmDelete()}>
         &times;
       </button>
-      <img src={image} alt="Sewing" />
+      <img src={image} alt={title} />
       <h2>{title}</h2>
       <p>{description}</p>
       <Link to={`/courses/${id}`} className="primary-btn">

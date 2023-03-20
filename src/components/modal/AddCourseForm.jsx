@@ -2,8 +2,10 @@ import { useState } from "react";
 import FileItem from "./FileItem";
 import LinkItem from "./LinkItem";
 import { createDocument } from "../../scripts/fireStore/createDocument";
+import { createDocumentWithManualId } from "../../scripts/fireStore/createDocumentWithManualId";
 import { useCourse } from "../../state/CoursesProvider";
 import { downloadFile, uploadFile } from "../../scripts/cloudStorage";
+import { v4 as uuidv4 } from "uuid";
 
 export default function AddCourseForm({ setModal, header }) {
   const { dispatch } = useCourse();
@@ -13,9 +15,10 @@ export default function AddCourseForm({ setModal, header }) {
   const collection = "courses";
   const fileItem = <FileItem />;
   const linkItem = <LinkItem />;
-
   const [files, setFiles] = useState([fileItem]);
   const [links, setLinks] = useState([linkItem]);
+  const [buttonEnabled, setButtonEnabled] = useState(true);
+  const manualId = uuidv4() + "_" + Date.now();
 
   function handleAddFile(e) {
     e.preventDefault();
@@ -29,23 +32,24 @@ export default function AddCourseForm({ setModal, header }) {
 
   async function onSubmit(e) {
     const data = {
+      id: manualId,
       title: title,
       image: image,
       description: description,
     };
     e.preventDefault();
-    const documentId = await createDocument(collection, data);
-    dispatch({ type: "create", payload: { id: documentId, ...data } });
+    await createDocumentWithManualId(collection, manualId, data);
+    dispatch({ type: "create", payload: data });
     setModal(null);
   }
 
-  async function onChangeImage(event) {
+  async function onChooseImage(event) {
     const file = event.target.files[0];
-    const filePath = "courses/" + file.name;
-    let result = "";
+    const filePath = `courses/${manualId}_${file.name}`;
+    setButtonEnabled(false);
     await uploadFile(file, filePath);
-    result = await downloadFile(filePath);
-    setImage(result);
+    setImage(await downloadFile(filePath));
+    setButtonEnabled(true);
   }
 
   return (
@@ -71,11 +75,11 @@ export default function AddCourseForm({ setModal, header }) {
       </label>
       <label>
         Choose Image
-        {/* <img src={image} alt="Image preview" /> */}
         <input
+          required
           type="file"
           accept="image/png, image/jpeg, image/webp"
-          onChange={(event) => onChangeImage(event)}
+          onChange={(event) => onChooseImage(event)}
         />
       </label>
       <h3>
@@ -88,7 +92,7 @@ export default function AddCourseForm({ setModal, header }) {
         <i onClick={handleAddLink} className="fa-solid fa-plus-circle"></i>
       </h3>
       {links}
-      <button data-testid="submit-btn" className="primary-btn" type="submit">
+      <button disabled={!buttonEnabled} className="primary-btn">
         Submit
       </button>
     </form>

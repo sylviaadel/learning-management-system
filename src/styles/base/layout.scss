@@ -49,6 +49,9 @@ button {
   align-items: center;
   text-decoration: none;
   box-shadow: 5px 5px $orangeColor;
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .link-btn {

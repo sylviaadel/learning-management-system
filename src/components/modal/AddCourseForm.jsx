@@ -1,10 +1,9 @@
 import { useState } from "react";
-import FileItem from "./FileItem";
-import LinkItem from "./LinkItem";
-import { createDocument } from "../../scripts/fireStore/createDocument";
 import { createDocumentWithManualId } from "../../scripts/fireStore/createDocumentWithManualId";
 import { useCourse } from "../../state/CoursesProvider";
 import { downloadFile, uploadFile } from "../../scripts/cloudStorage";
+import { AddFiles } from "./AddMaterials";
+import { AddLinks } from "./AddMaterials";
 import { v4 as uuidv4 } from "uuid";
 
 export default function AddCourseForm({ setModal, header }) {
@@ -13,22 +12,8 @@ export default function AddCourseForm({ setModal, header }) {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const collection = "courses";
-  const fileItem = <FileItem />;
-  const linkItem = <LinkItem />;
-  const [files, setFiles] = useState([fileItem]);
-  const [links, setLinks] = useState([linkItem]);
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const manualId = uuidv4() + "_" + Date.now();
-
-  function handleAddFile(e) {
-    e.preventDefault();
-    setFiles([...files, fileItem]);
-  }
-
-  function handleAddLink(e) {
-    e.preventDefault();
-    setLinks([...links, linkItem]);
-  }
 
   async function onSubmit(e) {
     const data = {
@@ -82,16 +67,8 @@ export default function AddCourseForm({ setModal, header }) {
           onChange={(event) => onChooseImage(event)}
         />
       </label>
-      <h3>
-        Files
-        <i onClick={handleAddFile} className="fa-solid fa-plus-circle"></i>
-      </h3>
-      {files}
-      <h3>
-        Links
-        <i onClick={handleAddLink} className="fa-solid fa-plus-circle"></i>
-      </h3>
-      {links}
+      <AddFiles />
+      <AddLinks />
       <button disabled={!buttonEnabled} className="primary-btn">
         Submit
       </button>

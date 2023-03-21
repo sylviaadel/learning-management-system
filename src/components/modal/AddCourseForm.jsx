@@ -35,7 +35,6 @@ export default function AddCourseForm({ setModal, header }) {
     for (let i = 0; i < links.length; i++) {
       await createLink(collection, manualId, links[i]);
     }
-    //await createLink(collection, manualId, linkData);
     await createDocumentWithManualId(collection, manualId, data);
     dispatch({ type: "create", payload: data });
     setModal(null);

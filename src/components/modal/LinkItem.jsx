@@ -1,16 +1,14 @@
-import { useState } from "react";
 import linkIcon from "../../assets/images/link-icon.png";
 
-export default function LinkItem({ changeTitle, changeLink }) {
-  const [title, setTitle] = useState("");
-  const [link, setLink] = useState("");
+export default function LinkItem({ link, id, changeLink }) {
   function onChangeTitle(event) {
-    setTitle(event.target.value);
-    changeTitle(title);
+    link.title = event.target.value;
+    changeLink(link, id);
   }
+
   function onChangeLink(event) {
-    setLink(event.target.value);
-    changeLink(event.target.value);
+    link.link = event.target.value;
+    changeLink(link, id);
   }
 
   return (
@@ -19,11 +17,11 @@ export default function LinkItem({ changeTitle, changeLink }) {
       <div>
         <label>
           Title
-          <input type="text" value={title} onChange={onChangeTitle} />
+          <input type="text" value={link.title} onChange={onChangeTitle} />
         </label>
         <label>
           Link
-          <input type="text" value={link} onChange={onChangeLink} />
+          <input type="text" value={link.link} onChange={onChangeLink} />
         </label>
       </div>
     </div>

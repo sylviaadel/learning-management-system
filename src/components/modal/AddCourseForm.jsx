@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createDocumentWithManualId } from "../../scripts/fireStore/createDocumentWithManualId";
 import { useCourse } from "../../state/CoursesProvider";
 import { createFile } from "../../scripts/fireStore/createFile";
+import { createLink } from "../../scripts/fireStore/createLink";
 import { downloadFile, uploadFile } from "../../scripts/cloudStorage";
 import Files from "./Files";
 import { Links } from "./Links";
@@ -15,6 +16,7 @@ export default function AddCourseForm({ setModal, header }) {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [files, setFiles] = useState([]);
+  const [links, setLinks] = useState([]);
   const collection = "courses";
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const manualId = uuidv4() + "_" + Date.now();
@@ -30,6 +32,9 @@ export default function AddCourseForm({ setModal, header }) {
     for (let i = 0; i < files.length; i++) {
       await createFile(collection, manualId, files[i]);
     }
+    for (let i = 0; i < links.length; i++) {
+      await createLink(collection, manualId, links[i]);
+    }
     //await createLink(collection, manualId, linkData);
     await createDocumentWithManualId(collection, manualId, data);
     dispatch({ type: "create", payload: data });
@@ -38,6 +43,10 @@ export default function AddCourseForm({ setModal, header }) {
 
   function changeFiles(files) {
     setFiles(files);
+  }
+
+  function changeLinks(links) {
+    setLinks(links);
   }
 
   async function onChooseImage(event) {
@@ -82,7 +91,7 @@ export default function AddCourseForm({ setModal, header }) {
         />
       </label>
       <Files courseFilesChanged={changeFiles} />
-      <Links />
+      <Links courseLinksChanged={changeLinks} />
       <button disabled={!buttonEnabled} className="primary-btn">
         Submit
       </button>

@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { createDocumentWithManualId } from "../../scripts/fireStore/createDocumentWithManualId";
 import { useCourse } from "../../state/CoursesProvider";
+import { createLink } from "../../scripts/fireStore/createLink";
 import { downloadFile, uploadFile } from "../../scripts/cloudStorage";
 import { AddFiles } from "./AddMaterials";
 import { AddLinks } from "./AddMaterials";
 import { v4 as uuidv4 } from "uuid";
+import readFile from "../../scripts/resize-image/readFile";
+import resizeImage from "../../scripts/resize-image/resizeImage";
 
 export default function AddCourseForm({ setModal, header }) {
   const { dispatch } = useCourse();
@@ -31,8 +34,10 @@ export default function AddCourseForm({ setModal, header }) {
   async function onChooseImage(event) {
     const file = event.target.files[0];
     const filePath = `courses/${manualId}_${file.name}`;
+    const imageFromfile = await readFile(file);
     setButtonEnabled(false);
-    await uploadFile(file, filePath);
+    const resizedImage = await resizeImage(imageFromfile, 325, 170);
+    await uploadFile(resizedImage, filePath);
     setImage(await downloadFile(filePath));
     setButtonEnabled(true);
   }

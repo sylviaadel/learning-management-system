@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { createDocumentWithManualId } from "../../scripts/fireStore/createDocumentWithManualId";
 import { useCourse } from "../../state/CoursesProvider";
-import { createLink } from "../../scripts/fireStore/createLink";
 import { createFile } from "../../scripts/fireStore/createFile";
 import { downloadFile, uploadFile } from "../../scripts/cloudStorage";
-import { AddFiles } from "./AddMaterials";
-import { AddLinks } from "./AddMaterials";
+import Files from "./Files";
+import { Links } from "./Links";
 import { v4 as uuidv4 } from "uuid";
 import readFile from "../../scripts/resize-image/readFile";
 import resizeImage from "../../scripts/resize-image/resizeImage";
@@ -15,10 +14,7 @@ export default function AddCourseForm({ setModal, header }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
-  const [fileTitle, setFileTitle] = useState("");
-  const [file, setFile] = useState("");
-  const [linkTitle, setLinkTitle] = useState("");
-  const [link, setLink] = useState("");
+  const [files, setFiles] = useState([]);
   const collection = "courses";
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const manualId = uuidv4() + "_" + Date.now();
@@ -30,20 +26,18 @@ export default function AddCourseForm({ setModal, header }) {
       image: image,
       description: description,
     };
-    const fileData = {
-      file: file,
-      title: fileTitle,
-    };
-    const linkData = {
-      link: link,
-      title: linkTitle,
-    };
     e.preventDefault();
-    await createFile(collection, manualId, fileData);
-    await createLink(collection, manualId, linkData);
+    for (let i = 0; i < files.length; i++) {
+      await createFile(collection, manualId, files[i]);
+    }
+    //await createLink(collection, manualId, linkData);
     await createDocumentWithManualId(collection, manualId, data);
     dispatch({ type: "create", payload: data });
     setModal(null);
+  }
+
+  function changeFiles(files) {
+    setFiles(files);
   }
 
   async function onChooseImage(event) {
@@ -54,14 +48,6 @@ export default function AddCourseForm({ setModal, header }) {
     const resizedImage = await resizeImage(imageFromfile, 325, 170);
     await uploadFile(resizedImage, filePath);
     setImage(await downloadFile(filePath));
-    setButtonEnabled(true);
-  }
-  async function changeFile(event) {
-    const file = event.target.files[0];
-    const filePath = `files/${manualId}_${file.name}`;
-    await uploadFile(file, filePath);
-    setButtonEnabled(false);
-    setFile(await downloadFile(filePath));
     setButtonEnabled(true);
   }
 
@@ -95,8 +81,8 @@ export default function AddCourseForm({ setModal, header }) {
           onChange={(event) => onChooseImage(event)}
         />
       </label>
-      <AddFiles changeTitle={setFileTitle} changeFile={changeFile} />
-      <AddLinks changeTitle={setLinkTitle} changeLink={setLink} />
+      <Files courseFilesChanged={changeFiles} />
+      <Links />
       <button disabled={!buttonEnabled} className="primary-btn">
         Submit
       </button>

@@ -2,8 +2,10 @@ import { useState } from "react";
 import FileItem from "./FileItem";
 import LinkItem from "./LinkItem";
 
-export function AddFiles() {
-  const fileItem = <FileItem />;
+export function AddFiles({ changeTitle, changeFile }) {
+  const fileItem = (
+    <FileItem changeTitle={changeTitle} changeFile={changeFile} />
+  );
   const [files, setFiles] = useState([fileItem]);
 
   function handleAddFile(e) {
@@ -21,8 +23,10 @@ export function AddFiles() {
   );
 }
 
-export function AddLinks() {
-  const linkItem = <LinkItem />;
+export function AddLinks({ changeTitle, changeLink }) {
+  const linkItem = (
+    <LinkItem changeTitle={changeTitle} changeLink={changeLink} />
+  );
   const [links, setLinks] = useState([linkItem]);
 
   function handleAddLink(e) {

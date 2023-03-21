@@ -12,6 +12,7 @@ export default function CourseDetails({ collection }) {
   const [status, setStatus] = useState(0);
   const currentCourse = data.find((course) => course.id === id);
   const [links, setLinks] = useState([]);
+  const [files, setFiles] = useState([]);
 
   useEffect(() => {
     loadData(collection);
@@ -22,8 +23,10 @@ export default function CourseDetails({ collection }) {
       setStatus(2);
     } else {
       const data = await readDocuments(collection).catch(onFail);
-      var result = await readLinks(`${collection}/${id}/links`);
-      setLinks(result);
+      var currentFiles = await readLinks(`${collection}/${id}/files`);
+      setFiles(currentFiles);
+      var currentLinks = await readLinks(`${collection}/${id}/links`);
+      setLinks(currentLinks);
       onSuccess(data);
     }
   }
@@ -44,6 +47,13 @@ export default function CourseDetails({ collection }) {
       </a>
     </li>
   ));
+  const selectedFiles = files.map((file) => (
+    <li key={file.id}>
+      <a href={file.file} target="_blank">
+        {file.title}
+      </a>
+    </li>
+  ));
 
   return (
     <div id="CourseDetails">
@@ -61,14 +71,7 @@ export default function CourseDetails({ collection }) {
               course:
             </p>
             <h3>Files</h3>
-            <ul>
-              <li>
-                <a>File 1</a>
-              </li>
-              <li>
-                <a>File 2</a>
-              </li>
-            </ul>
+            <ul>{selectedFiles}</ul>
             <h3>Links</h3>
             <ul>{selectedLinks}</ul>
           </div>

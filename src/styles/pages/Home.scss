@@ -19,6 +19,14 @@
     p {
       width: 305px;
     }
+    div {
+      text-align: center;
+      .link-btn {
+        font-size: 14px;
+        margin-top: $spacing-xsmall;
+        color: $blueColor;
+      }
+    }
   }
   .special-features {
     background-color: $babyBlueColor;
@@ -121,6 +129,13 @@
       p {
         max-width: 850px;
         width: 50%;
+      }
+      div {
+        .link-btn {
+          font-size: 20px;
+          margin-top: $spacing-small;
+          color: $blueColor;
+        }
       }
     }
     .special-features {

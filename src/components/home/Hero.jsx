@@ -9,9 +9,14 @@ export default function Hero() {
         You Can Be Stylish, Have Confidence, and Feel Radiant everyday, all you
         need is to know how.
       </p>
-      <Link to="/login" className="primary-btn">
-        Join Course
-      </Link>
+      <div>
+        <Link to="/sign-up" className="primary-btn">
+          Join Us Now
+        </Link>
+        <Link to="/login" className="link-btn">
+          login to your account
+        </Link>
+      </div>
     </section>
   );
 }

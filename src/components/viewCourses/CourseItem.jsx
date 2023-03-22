@@ -25,18 +25,20 @@ export default function CourseItem({ item, setModal }) {
 
   return (
     <article className="course-item">
-      <button className="close" onClick={() => confirmDelete()}>
-        &times;
-      </button>
       <img src={image} alt={title} />
       <h2>{title}</h2>
       <p>{description}</p>
       <Link to={`/courses/${id}`} className="primary-btn">
         View Details
       </Link>
-      <button className="primary-btn" onClick={openEditModal}>
-        <i className="fa-solid fa-pen-to-square"></i> Edit
-      </button>
+      <div className="actions">
+        <button onClick={openEditModal}>
+          <i className="fa-solid fa-pen-to-square"></i>
+        </button>
+        <button className="close" onClick={() => confirmDelete()}>
+          <span>&times;</span>
+        </button>
+      </div>
     </article>
   );
 }

@@ -2,18 +2,18 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createAccount } from "../scripts/auth/createAccount";
 import { useUser } from "../state/UsersProvider";
+import signupData from "../data/signupData.json";
+import InputText from "../components/form/InputText";
 
 export default function SignUp() {
   const navigate = useNavigate();
   const { setUid, saveUID } = useUser();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
 
   async function onSubmit(event) {
     event.preventDefault();
-    const result = await createAccount(name, email, password);
+    const result = await createAccount(form.name, form.email, form.password);
     result.status ? onSuccess(result) : onFail(result);
   }
 
@@ -29,37 +29,15 @@ export default function SignUp() {
     alert(result.message);
   }
 
+  const FormFields = signupData.map((item) => (
+    <InputText key={item.id} item={item} state={[form, setForm]} />
+  ));
+
   return (
     <div className="auth-page">
       <h1>Create a new Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
-        <label>
-          Name
-          <input
-            placeholder="Name"
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-        </label>
-        <label>
-          Email
-          <input
-            placeholder="email"
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            placeholder="password"
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
+        {FormFields}
         <span className="remember-me">
           <input
             type="checkbox"

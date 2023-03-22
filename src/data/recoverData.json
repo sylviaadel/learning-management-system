@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "key": "email",
+    "label": "Email:",
+    "type": "email",
+    "required": true,
+    "disabled": false
+  }
+]

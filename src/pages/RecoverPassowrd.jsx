@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { recoverAccount } from "../scripts/auth/recoverAccount";
-import recoverData from "../data/recoverData.json";
+import loginData from "../data/loginData.json";
 import InputText from "../components/form/InputText";
 
 export default function RecoverPassowrd() {
   const [form, setForm] = useState({ email: "" });
+  const email = loginData[0];
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -23,15 +24,11 @@ export default function RecoverPassowrd() {
     alert(result.message);
   }
 
-  const FormFields = recoverData.map((item) => (
-    <InputText key={item.id} item={item} state={[form, setForm]} />
-  ));
-
   return (
     <div className="auth-page">
       <h1>Recover Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
-        {FormFields}
+        <InputText key={email.id} item={email} state={[form, setForm]} />
         <button className="primary-btn">Recover Account</button>
       </form>
       <Link to="/login">Go back to Login</Link>

@@ -9,24 +9,29 @@ import { Links } from "./Links";
 import { v4 as uuidv4 } from "uuid";
 import readFile from "../../scripts/resize-image/readFile";
 import resizeImage from "../../scripts/resize-image/resizeImage";
+import courseTitle from "../../data/courseTitle.json";
+import courseDescription from "../../data/courseDescription.json";
+import InputText from "../form/InputText";
+import InputTextArea from "../form/InputTextarea";
 
 export default function AddCourseForm({ setModal, header }) {
   const { dispatch } = useCourse();
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [files, setFiles] = useState([]);
   const [links, setLinks] = useState([]);
   const collection = "courses";
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const manualId = uuidv4() + "_" + Date.now();
+  const [form, setForm] = useState({ title: "", description: "" });
+  const title = courseTitle[0];
+  const desc = courseDescription[0];
 
   async function onSubmit(e) {
     const data = {
       id: manualId,
-      title: title,
+      title: form.title,
       image: image,
-      description: description,
+      description: form.description,
     };
     e.preventDefault();
     for (let i = 0; i < files.length; i++) {
@@ -40,14 +45,6 @@ export default function AddCourseForm({ setModal, header }) {
     setModal(null);
   }
 
-  function changeFiles(files) {
-    setFiles(files);
-  }
-
-  function changeLinks(links) {
-    setLinks(links);
-  }
-
   async function onChooseImage(event) {
     const file = event.target.files[0];
     const filePath = `courses/${manualId}_${file.name}`;
@@ -59,27 +56,18 @@ export default function AddCourseForm({ setModal, header }) {
     setButtonEnabled(true);
   }
 
+  function changeFiles(files) {
+    setFiles(files);
+  }
+  function changeLinks(links) {
+    setLinks(links);
+  }
+
   return (
     <form onSubmit={(e) => onSubmit(e)}>
       <h2>{header}</h2>
-      <label>
-        Title
-        <input
-          required
-          autoFocus
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </label>
-      <label>
-        Description
-        <textarea
-          required
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </label>
+      <InputText key={title.id} item={title} state={[form, setForm]} />
+      <InputTextArea key={desc.id} item={desc} state={[form, setForm]} />
       <label>
         Choose Image
         <input

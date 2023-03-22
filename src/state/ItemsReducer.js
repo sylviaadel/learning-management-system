@@ -2,6 +2,8 @@ export function ItemsReducer(state, action) {
   switch (action.type) {
     case "create":
       return onCreate(state, action);
+    case "update":
+      return onUpdate(state, action);
     case "delete":
       return onDelete(state, action);
     case "initializeArray":
@@ -14,6 +16,15 @@ export function ItemsReducer(state, action) {
 function onCreate(state, action) {
   const newItem = action.payload;
   return [...state, newItem];
+}
+
+function onUpdate(state, action) {
+  const updatedCourse = action.payload;
+  const id = updatedCourse.id;
+  const clonedCourses = [...state];
+  const itemIndex = clonedCourses.findIndex((item) => item.id === id);
+  clonedCourses[itemIndex] = updatedCourse;
+  return clonedCourses;
 }
 
 function onDelete(state, action) {

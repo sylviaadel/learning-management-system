@@ -14,7 +14,7 @@ import courseDescription from "../../data/courseDescription.json";
 import InputText from "../form/InputText";
 import InputTextArea from "../form/InputTextarea";
 
-export default function AddCourseForm({ setModal, header }) {
+export default function AddCourseForm({ setModal, header, isUpdate }) {
   const { dispatch } = useCourse();
   const [image, setImage] = useState("");
   const [files, setFiles] = useState([]);
@@ -43,6 +43,13 @@ export default function AddCourseForm({ setModal, header }) {
     await createDocumentWithManualId(collection, manualId, data);
     dispatch({ type: "create", payload: data });
     setModal(null);
+
+    // if (isUpdate === true) {
+    //   alert("update");
+    //   const newData = { ...data, title: "zew" };
+    //   await updateDocument(collection, newData);
+    //   dispatch({ type: "update", payload: data });
+    // }
   }
 
   async function onChooseImage(event) {

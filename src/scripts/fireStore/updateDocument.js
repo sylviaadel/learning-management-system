@@ -1,6 +1,6 @@
 import { doc } from "firebase/firestore";
 import { updateDoc } from "firebase/firestore";
-import { database } from "./firebaseSetup";
+import { database } from "../firebaseSetup";
 
 export async function updateDocument(collectionName, documentToUpdate) {
   const id = documentToUpdate.id;

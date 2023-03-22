@@ -35,7 +35,7 @@ export default function ManageCourses({ setModal }) {
   ));
 
   return (
-    <section className="courses-list">
+    <>
       <button
         className="add-btn primary-btn"
         onClick={() =>
@@ -44,9 +44,12 @@ export default function ManageCourses({ setModal }) {
       >
         + Add New
       </button>
-      {status === 0 && <Spinner />}
-      {status === 1 && <>{Courses}</>}
-      {status === 2 && <NotFound />}
-    </section>
+      <div className="clear"></div>
+      <section className="courses-list">
+        {status === 0 && <Spinner />}
+        {status === 1 && <>{Courses}</>}
+        {status === 2 && <NotFound />}
+      </section>
+    </>
   );
 }

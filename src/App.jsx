@@ -10,7 +10,7 @@ import { readDocument } from "./scripts/fireStore/readDocument";
 import ScrollToTop from "./components/shared/ScrollToTop";
 
 export default function App() {
-  const { uid, data, dispatch } = useUser();
+  const { uid } = useUser();
   const [status, setStatus] = useState(0);
   const collection = "users";
   const [loggedInUser, setloggedInUser] = useState(null);
@@ -20,7 +20,6 @@ export default function App() {
   }, [uid]);
 
   async function loadData(collection) {
-    //debugger;
     const data = await readDocument(collection, uid).catch(onFail);
     onSuccess(data);
   }

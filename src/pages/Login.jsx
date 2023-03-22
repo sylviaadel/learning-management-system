@@ -2,17 +2,18 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../state/UsersProvider";
 import { login } from "../scripts/auth/login";
+import loginData from "../data/loginData.json";
+import InputText from "../components/form/InputText";
 
 export default function Login() {
   const navigate = useNavigate();
   const { setUid, saveUID } = useUser();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
+  const [form, setForm] = useState({ email: "", password: "" });
 
   async function onSubmit(event) {
     event.preventDefault();
-    const result = await login(email, password);
+    const result = await login(form.email, form.password);
     result.status ? onSuccess(result) : onFailure(result);
   }
 
@@ -28,28 +29,15 @@ export default function Login() {
     alert(result.message);
   }
 
+  const FormFields = loginData.map((item) => (
+    <InputText key={item.id} item={item} state={[form, setForm]} />
+  ));
+
   return (
     <div className="auth-page">
       <h1>Login to Your Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
-        <label>
-          Email
-          <input
-            placeholder="email"
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            placeholder="password"
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
+        {FormFields}
         <span className="remember-me">
           <input
             type="checkbox"

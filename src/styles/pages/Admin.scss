@@ -112,18 +112,6 @@
                   color: $darkBlueColor;
                   font-size: 20px;
                 }
-                &.close span {
-                  background-color: $darkBlueColor;
-                  color: $orangeColor;
-                  border-radius: 50%;
-                  width: 25px;
-                  height: 25px;
-                  border: 0;
-                  line-height: 25px;
-                  font-size: 28px;
-                  display: block;
-                  margin: auto;
-                }
               }
             }
           }
@@ -176,12 +164,6 @@
                 button {
                   i {
                     font-size: 35px;
-                  }
-                  &.close span {
-                    width: 40px;
-                    height: 40px;
-                    line-height: 40px;
-                    font-size: 40px;
                   }
                 }
               }

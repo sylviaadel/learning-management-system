@@ -75,7 +75,7 @@ export default function CourseDetails({ collection }) {
             <h3>Links</h3>
             <ul>{selectedLinks}</ul>
           </div>
-          <Link to="/courses" className="primary-btn">
+          <Link to="/" className="primary-btn">
             Back
           </Link>
         </>

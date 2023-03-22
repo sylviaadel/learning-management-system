@@ -12,6 +12,7 @@
     max-width: 305px;
     margin: $spacing-medium auto;
     align-items: center;
+    justify-content: space-between;
     img {
       width: 110px;
       object-fit: contain;
@@ -47,6 +48,7 @@
       flex-direction: row-reverse;
       max-width: 850px;
       gap: $spacing-xlarge;
+      justify-content: flex-end;
       img {
         width: 180px;
         height: 200px;

@@ -35,8 +35,8 @@ export default function CourseItem({ item, setModal }) {
         <button onClick={openEditModal}>
           <i className="fa-solid fa-pen-to-square"></i>
         </button>
-        <button className="close" onClick={() => confirmDelete()}>
-          <span>&times;</span>
+        <button onClick={() => confirmDelete()}>
+          <i className="fa-solid fa-trash"></i>
         </button>
       </div>
     </article>

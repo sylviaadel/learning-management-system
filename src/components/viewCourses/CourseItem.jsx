@@ -3,12 +3,14 @@ import AddCourseForm from "../modal/AddCourseForm";
 import { useCourse } from "../../state/CoursesProvider";
 import ConfirmDelete from "../modal/ConfirmDelete";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
+import { updateDocument } from "../../scripts/fireStore/updateDocument";
 
 export default function CourseItem({ item, setModal }) {
   const { id, title, description, image } = item;
   const { dispatch } = useCourse();
   const header = "Update Course Details";
   const collectionName = "courses";
+  const isUpdate = true;
 
   function confirmDelete() {
     setModal(<ConfirmDelete setModal={setModal} onDelete={deleteCourse} />);
@@ -19,8 +21,13 @@ export default function CourseItem({ item, setModal }) {
     dispatch({ type: "delete", payload: id });
   }
 
-  function openEditModal() {
-    setModal(<AddCourseForm setModal={setModal} header={header} />);
+  async function openEditModal() {
+    setModal(
+      <AddCourseForm setModal={setModal} header={header} isUpdate={isUpdate} />
+    );
+    const data = { ...item, title: "zew" };
+    await updateDocument(collectionName, data);
+    dispatch({ type: "update", payload: data });
   }
 
   return (

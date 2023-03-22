@@ -52,6 +52,13 @@ button {
   &:disabled {
     opacity: 0.5;
   }
+  &.add-btn {
+    background-color: $babyBlueColor;
+    height: 55px;
+    color: $blueColor;
+    box-shadow: 5px 5px $blueColor;
+    margin: $spacing-small auto;
+  }
 }
 
 .link-btn {
@@ -61,6 +68,10 @@ button {
   border: 0;
   display: inline-flex;
   cursor: pointer;
+}
+
+.clear {
+  clear: both;
 }
 
 @media (min-width: 860px) {
@@ -81,6 +92,10 @@ button {
     font-size: 25px;
     width: 200px;
     height: 50px;
+    &.add-btn {
+      float: right;
+      margin: $spacing-medium $spacing-medium 0;
+    }
   }
   .link-btn {
     font-size: 25px;

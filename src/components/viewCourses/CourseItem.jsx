@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import AddCourseForm from "../modal/AddCourseForm";
 import { useCourse } from "../../state/CoursesProvider";
-import ConfirmDelete from "../modal/ConfirmDelete";
+import InfoPopup from "../modal/InfoPopup";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 import { updateDocument } from "../../scripts/fireStore/updateDocument";
 
@@ -13,7 +13,14 @@ export default function CourseItem({ item, setModal }) {
   const isUpdate = true;
 
   function confirmDelete() {
-    setModal(<ConfirmDelete setModal={setModal} onDelete={deleteCourse} />);
+    const item = {
+      title: "Confirmation",
+      message: "Are you sure you want to delete this item?",
+      btnTitle: "Delete",
+    };
+    setModal(
+      <InfoPopup setModal={setModal} onClose={deleteCourse} item={item} />
+    );
   }
 
   async function deleteCourse() {

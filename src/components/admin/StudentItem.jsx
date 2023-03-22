@@ -1,4 +1,4 @@
-import ConfirmDelete from "../modal/ConfirmDelete";
+import InfoPopup from "../modal/InfoPopup";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 import { useUser } from "../../state/UsersProvider";
 import userGirl from "../../assets/images/user-girl.svg";
@@ -9,7 +9,14 @@ export default function StudentItem({ item, setModal }) {
   const collectionName = "users";
 
   function confirmDelete() {
-    setModal(<ConfirmDelete setModal={setModal} onDelete={deleteUser} />);
+    const item = {
+      title: "Confirmation",
+      message: "Are you sure you want to delete this item?",
+      btnTitle: "Delete",
+    };
+    setModal(
+      <InfoPopup setModal={setModal} onClose={deleteUser} item={item} />
+    );
   }
 
   async function deleteUser() {

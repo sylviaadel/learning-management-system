@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import navLinks from "../../data/navLinks.json";
 import { Link } from "react-router-dom";
 import NavbarLink from "../navbar/NavbarLink";
-import ConfirmLogout from "../modal/ConfirmLogout";
+import InfoPopup from "../modal/InfoPopup";
 import Modal from "../modal/Modal";
 import { useState } from "react";
 
@@ -20,9 +20,16 @@ export default function Navbar() {
     navigate("/");
   }
 
+  const item = {
+    title: "Confirmation",
+    message: "Are you sure you want to logout?",
+    btnTitle: "Logout",
+  };
   function onChange() {
     if (uid) {
-      setModal(<ConfirmLogout setModal={setModal} onLogout={logoutUser} />);
+      setModal(
+        <InfoPopup setModal={setModal} onClose={logoutUser} item={item} />
+      );
     } else {
       navigate("/login");
     }

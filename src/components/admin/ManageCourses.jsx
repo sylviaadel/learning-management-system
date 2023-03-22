@@ -36,18 +36,17 @@ export default function ManageCourses({ setModal }) {
 
   return (
     <section className="courses-list">
-      {status === 0 && <Spinner />}
-      {status === 1 && <>{Courses}</>}
-      {status === 2 && <NotFound />}
-      <div
-        className="course-item add-course"
+      <button
+        className="add-btn primary-btn"
         onClick={() =>
           setModal(<AddCourseForm setModal={setModal} header={header} />)
         }
       >
-        <i className="fa-solid fa-circle-plus"></i>
-        <h3>ADD NEW</h3>
-      </div>
+        + Add New
+      </button>
+      {status === 0 && <Spinner />}
+      {status === 1 && <>{Courses}</>}
+      {status === 2 && <NotFound />}
     </section>
   );
 }

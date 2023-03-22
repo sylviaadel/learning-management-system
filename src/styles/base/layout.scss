@@ -52,6 +52,12 @@ button {
   &:disabled {
     opacity: 0.5;
   }
+  &.add-btn {
+    background-color: $babyBlueColor;
+    height: 55px;
+    color: $blueColor;
+    box-shadow: 5px 5px $blueColor;
+  }
 }
 
 .link-btn {

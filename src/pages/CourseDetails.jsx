@@ -42,14 +42,14 @@ export default function CourseDetails({ collection }) {
 
   const selectedLinks = links.map((link) => (
     <li key={link.id}>
-      <a href={link.link} target="_blank">
+      <a href={link.link} target="_blank" rel="noreferrer">
         {link.title}
       </a>
     </li>
   ));
   const selectedFiles = files.map((file) => (
     <li key={file.id}>
-      <a href={file.file} target="_blank">
+      <a href={file.file} target="_blank" rel="noreferrer">
         {file.title}
       </a>
     </li>

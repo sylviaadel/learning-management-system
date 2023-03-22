@@ -85,31 +85,45 @@
         &.courses-list {
           .course-item {
             width: 260px;
+            padding: 1.5rem 1.5rem 0;
             img {
               margin-top: $spacing-medium;
             }
             p {
               display: none;
             }
-            button {
-              display: block;
-              margin: 24px auto 0;
-              i {
-                color: $whiteColor;
-              }
-              &.close {
+            .actions {
+              display: flex;
+              margin: $spacing-medium -24px 0;
+              height: 70px;
+              button {
                 background-color: $orangeColor;
-                color: $lightPinkColor;
-                border-radius: 50%;
-                width: 25px;
-                height: 25px;
-                border: 0;
-                font-size: 28px;
-                line-height: 20px;
-                position: absolute;
-                top: -10px;
-                right: 10px;
-                text-align: center;
+                color: $darkBlueColor;
+                border: solid 5px $lightOrangeColor;
+                width: 50%;
+                &:first-child {
+                  border-bottom-left-radius: 20px;
+                  border-right: 0;
+                }
+                &:last-child {
+                  border-bottom-right-radius: 20px;
+                }
+                i {
+                  color: $darkBlueColor;
+                  font-size: 20px;
+                }
+                &.close span {
+                  background-color: $darkBlueColor;
+                  color: $orangeColor;
+                  border-radius: 50%;
+                  width: 25px;
+                  height: 25px;
+                  border: 0;
+                  line-height: 25px;
+                  font-size: 28px;
+                  display: block;
+                  margin: auto;
+                }
               }
             }
           }
@@ -157,14 +171,19 @@
           &.courses-list {
             .course-item {
               width: 375px;
-              height: 430px;
-              button.close {
-                width: 40px;
-                height: 40px;
-                font-size: 50px;
-                top: -10px;
-                right: 10px;
-                line-height: 18px;
+              .actions {
+                height: 90px;
+                button {
+                  i {
+                    font-size: 35px;
+                  }
+                  &.close span {
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 40px;
+                  }
+                }
               }
               img {
                 margin-top: $spacing-xlarge;

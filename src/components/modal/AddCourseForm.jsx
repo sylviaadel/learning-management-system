@@ -46,9 +46,6 @@ export default function AddCourseForm({ setModal, header, isUpdate }) {
 
     // if (isUpdate === true) {
     //   alert("update");
-    //   const newData = { ...data, title: "zew" };
-    //   await updateDocument(collection, newData);
-    //   dispatch({ type: "update", payload: data });
     // }
   }
 

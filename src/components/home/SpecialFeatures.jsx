@@ -1,5 +1,6 @@
 import specialImg from "../../assets/images/special-img.png";
 import specialItem from "../../data/specialItems.json";
+import { imgSpecialAlt } from "../../scripts/helpers";
 
 const Items = specialItem.map((item) => (
   <article className="special-item" key={item.id}>
@@ -13,10 +14,7 @@ export default function SpecialFeatures() {
     <section className="special-features">
       <header>
         <h2>Specially features are only for you</h2>
-        <img
-          src={specialImg}
-          alt="A pink notebook, papers, a pencil and eyeglasses over them"
-        />
+        <img src={specialImg} alt={imgSpecialAlt} />
       </header>
       <div>{Items}</div>
     </section>

@@ -1,13 +1,11 @@
 import Tabs from "../components/admin/Tabs";
+import { adminText } from "../scripts/helpers";
 
 export default function Admin() {
   return (
     <div id="Admin">
       <h1>Welcome Admin</h1>
-      <p>
-        Please choose from below tabs which item to manage, you can update,
-        delete or add new Courses and delete or add new Students.
-      </p>
+      <p>{adminText}</p>
       <Tabs />
     </div>
   );

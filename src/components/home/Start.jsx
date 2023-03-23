@@ -1,17 +1,13 @@
 import startImg from "../../assets/images/start-img.png";
-import checkmark from "../../assets/images/checkmark.png";
+import { imgStartAlt } from "../../scripts/helpers";
+import { checkmarkIcon } from "../../scripts/helpers";
 
 export default function Start() {
-  const checkmarkIcon = <img src={checkmark} alt="pink Checkmark" />;
-
   return (
     <section className="start">
       <header>
         <h2>It is easy to start Learning</h2>
-        <img
-          src={startImg}
-          alt="A girl holding graduation report and wearing graduation cap infront of laptop and books"
-        />
+        <img src={startImg} alt={imgStartAlt} />
       </header>
       <ul>
         <li>{checkmarkIcon} Create Account</li>

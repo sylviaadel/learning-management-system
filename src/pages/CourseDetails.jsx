@@ -6,6 +6,7 @@ import { readLinks } from "../scripts/fireStore/readLinks";
 import Spinner from "../components/shared/Spinner";
 import InvalidID from "../components/shared/InvalidID";
 import Material from "../components/viewCourses/CourseMaterials";
+import { courseText } from "../scripts/helpers";
 
 export default function CourseDetails({ collection }) {
   let { id } = useParams();
@@ -14,8 +15,6 @@ export default function CourseDetails({ collection }) {
   const currentCourse = data.find((course) => course.id === id);
   const [links, setLinks] = useState([]);
   const [files, setFiles] = useState([]);
-  const text =
-    "Please check below all materials needed to be professional in this course:";
 
   useEffect(() => {
     loadData(collection);
@@ -61,7 +60,7 @@ export default function CourseDetails({ collection }) {
             <img src={currentCourse.image} alt={currentCourse.title} />
           </header>
           <div className="course-content">
-            <p>{text}</p>
+            <p>{courseText}</p>
             <h3>Files</h3>
             <ul>{selectedFiles}</ul>
             <h3>Links</h3>

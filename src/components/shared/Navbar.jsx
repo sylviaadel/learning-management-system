@@ -7,12 +7,12 @@ import NavbarLink from "../navbar/NavbarLink";
 import InfoPopup from "../modal/InfoPopup";
 import Modal from "../modal/Modal";
 import { useState } from "react";
+import { logoAlt } from "../../scripts/helpers";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const { uid, setUid, saveUID } = useUser();
   const [modal, setModal] = useState(null);
-  const logoAlt = "A mannequin with red dress and a pen beside it";
 
   function logoutUser() {
     setUid("");

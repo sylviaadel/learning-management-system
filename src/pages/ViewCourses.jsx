@@ -6,10 +6,9 @@ import Hero from "../components/viewCourses/Hero";
 import Spinner from "../components/shared/Spinner";
 import NotFound from "./NotFound";
 import coursesImg from "../assets/images/courses-img.png";
+import { imgCoursesAlt } from "../scripts/helpers";
 
 export default function ViewCourses({ collection }) {
-  const alt =
-    "Clothes hanged on dressing along with shoes on ground and plants.";
   const { data, dispatch } = useCourse();
   const [status, setStatus] = useState(0);
 
@@ -43,7 +42,7 @@ export default function ViewCourses({ collection }) {
           <section className="courses-container">
             <header>
               <h2>Available Courses</h2>
-              <img src={coursesImg} alt={alt} />
+              <img src={coursesImg} alt={imgCoursesAlt} />
             </header>
             <section className="courses-list">{Courses}</section>
           </section>

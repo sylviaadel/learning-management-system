@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { recoverAccount } from "../scripts/auth/recoverAccount";
 import loginData from "../data/loginData.json";
 import InputText from "../components/form/InputText";
+import { recoverMessage } from "../scripts/helpers";
 
 export default function RecoverPassowrd() {
   const [form, setForm] = useState({ email: "" });
@@ -15,9 +16,7 @@ export default function RecoverPassowrd() {
   }
 
   function onSuccess() {
-    const message =
-      "Email with a reset link sent. Please check your SPAM/Junk folder as well.";
-    alert(message);
+    alert(recoverMessage);
   }
 
   function onFail(result) {

@@ -11,6 +11,8 @@ export default function ManageCourses({ setModal }) {
   const [status, setStatus] = useState(0);
   const collection = "courses";
   const header = "Add new Course";
+  const openForm = () =>
+    setModal(<AddCourseForm setModal={setModal} header={header} />);
 
   useEffect(() => {
     loadData(collection);
@@ -36,12 +38,7 @@ export default function ManageCourses({ setModal }) {
 
   return (
     <>
-      <button
-        className="add-btn primary-btn"
-        onClick={() =>
-          setModal(<AddCourseForm setModal={setModal} header={header} />)
-        }
-      >
+      <button className="add-btn primary-btn" onClick={openForm}>
         + Add New
       </button>
       <div className="clear"></div>

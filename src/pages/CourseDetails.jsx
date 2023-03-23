@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCourse } from "../state/CoursesProvider";
 import { readDocuments } from "../scripts/fireStore/readDocuments";
-import { readLinks } from "../scripts/fireStore/readLinks";
+import { readSubCollection } from "../scripts/fireStore/readSubCollection";
 import Spinner from "../components/shared/Spinner";
 import InvalidID from "../components/shared/InvalidID";
 import Material from "../components/viewCourses/CourseMaterials";
@@ -25,9 +25,9 @@ export default function CourseDetails({ collection }) {
       setStatus(2);
     } else {
       const data = await readDocuments(collection).catch(onFail);
-      var currentFiles = await readLinks(`${collection}/${id}/files`);
+      var currentFiles = await readSubCollection(`${collection}/${id}/files`);
       setFiles(currentFiles);
-      var currentLinks = await readLinks(`${collection}/${id}/links`);
+      var currentLinks = await readSubCollection(`${collection}/${id}/links`);
       setLinks(currentLinks);
       onSuccess(data);
     }

@@ -80,7 +80,7 @@ export default function AddCourseForm({ setModal, header, isUpdate }) {
         <input
           required
           type="file"
-          accept="image/png, image/jpeg, image/webp"
+          accept="image/png, image/jpeg, image/jpg, image/webp"
           onChange={(event) => onChooseImage(event)}
         />
       </label>

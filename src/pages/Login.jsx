@@ -4,6 +4,7 @@ import { useUser } from "../state/UsersProvider";
 import { login } from "../scripts/auth/login";
 import loginData from "../data/loginData.json";
 import InputText from "../components/form/InputText";
+import InputCheckbox from "../components/form/InputCheckbox";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -38,14 +39,7 @@ export default function Login() {
       <h1>Login to Your Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
         {FormFields}
-        <span className="remember-me">
-          <input
-            type="checkbox"
-            checked={remember}
-            onChange={() => setRemember(!remember)}
-          />
-          Remember Me
-        </span>
+        <InputCheckbox remember={remember} set={() => setRemember(!remember)} />
         <button className="primary-btn">Login</button>
       </form>
       <div className="links-container">

@@ -4,6 +4,7 @@ import { createAccount } from "../scripts/auth/createAccount";
 import { useUser } from "../state/UsersProvider";
 import signupData from "../data/signupData.json";
 import InputText from "../components/form/InputText";
+import InputCheckbox from "../components/form/InputCheckbox";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -38,14 +39,7 @@ export default function SignUp() {
       <h1>Create a new Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
         {FormFields}
-        <span className="remember-me">
-          <input
-            type="checkbox"
-            checked={remember}
-            onChange={() => setRemember(!remember)}
-          />
-          Remember Me
-        </span>
+        <InputCheckbox remember={remember} set={() => setRemember(!remember)} />
         <button className="primary-btn">Sign Up</button>
       </form>
       <Link to="/login">Already have an account</Link>

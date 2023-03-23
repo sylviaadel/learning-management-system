@@ -36,7 +36,7 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        {uid === "" ? (
+        {uid === "" || uid === null ? (
           <UnloggedRoutes />
         ) : !loggedInUser?.isTeacher ? (
           <StudentRoutes />

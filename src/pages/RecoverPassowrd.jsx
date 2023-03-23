@@ -14,7 +14,7 @@ export default function RecoverPassowrd() {
     result.status ? onSuccess(result) : onFail(result);
   }
 
-  function onSuccess(result) {
+  function onSuccess() {
     const message =
       "Email with a reset link sent. Please check your SPAM/Junk folder as well.";
     alert(message);

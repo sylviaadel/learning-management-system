@@ -5,6 +5,7 @@ import { readDocuments } from "../scripts/fireStore/readDocuments";
 import { readLinks } from "../scripts/fireStore/readLinks";
 import Spinner from "../components/shared/Spinner";
 import InvalidID from "../components/shared/InvalidID";
+import Material from "../components/viewCourses/CourseMaterials";
 
 export default function CourseDetails({ collection }) {
   let { id } = useParams();
@@ -13,6 +14,8 @@ export default function CourseDetails({ collection }) {
   const currentCourse = data.find((course) => course.id === id);
   const [links, setLinks] = useState([]);
   const [files, setFiles] = useState([]);
+  const text =
+    "Please check below all materials needed to be professional in this course:";
 
   useEffect(() => {
     loadData(collection);
@@ -41,18 +44,10 @@ export default function CourseDetails({ collection }) {
   }
 
   const selectedLinks = links.map((link) => (
-    <li key={link.id}>
-      <a href={link.link} target="_blank" rel="noreferrer">
-        {link.title}
-      </a>
-    </li>
+    <Material key={link.id} title={link.title} href={link.link} />
   ));
   const selectedFiles = files.map((file) => (
-    <li key={file.id}>
-      <a href={file.file} target="_blank" rel="noreferrer">
-        {file.title}
-      </a>
-    </li>
+    <Material key={file.id} title={file.title} href={file.file} />
   ));
 
   return (
@@ -66,10 +61,7 @@ export default function CourseDetails({ collection }) {
             <img src={currentCourse.image} alt={currentCourse.title} />
           </header>
           <div className="course-content">
-            <p>
-              Please check below all materials needed to be professional in this
-              course:
-            </p>
+            <p>{text}</p>
             <h3>Files</h3>
             <ul>{selectedFiles}</ul>
             <h3>Links</h3>

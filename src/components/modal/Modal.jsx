@@ -15,9 +15,6 @@ export default function Modal({ state, header }) {
           &times;
         </button>
         {modal}
-        <button className="link-btn" onClick={() => setModal(null)}>
-          Cancel
-        </button>
       </div>
     </div>,
     portal

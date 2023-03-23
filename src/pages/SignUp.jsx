@@ -5,12 +5,15 @@ import { useUser } from "../state/UsersProvider";
 import signupData from "../data/signupData.json";
 import InputText from "../components/form/InputText";
 import InputCheckbox from "../components/form/InputCheckbox";
+import InfoPopup from "../components/modal/InfoPopup";
+import Modal from "../components/modal/Modal";
 
 export default function SignUp() {
   const navigate = useNavigate();
   const { setUid, saveUID } = useUser();
   const [remember, setRemember] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [modal, setModal] = useState(null);
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -27,7 +30,18 @@ export default function SignUp() {
   }
 
   function onFail(result) {
-    alert(result.message);
+    const item = {
+      title: "Error",
+      message: result.message,
+      btnTitle: "Close",
+    };
+    setModal(
+      <InfoPopup setModal={setModal} onClose={closeModal} item={item} />
+    );
+  }
+
+  function closeModal() {
+    navigate("/sign-up");
   }
 
   const FormFields = signupData.map((item) => (
@@ -43,6 +57,7 @@ export default function SignUp() {
         <button className="primary-btn">Sign Up</button>
       </form>
       <Link to="/login">Already have an account</Link>
+      <Modal state={[modal, setModal]} />
     </div>
   );
 }

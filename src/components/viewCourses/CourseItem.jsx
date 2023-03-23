@@ -4,6 +4,8 @@ import { useCourse } from "../../state/CoursesProvider";
 import InfoPopup from "../modal/InfoPopup";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 import { updateDocument } from "../../scripts/fireStore/updateDocument";
+import AdminActions from "./AdminActions";
+import { deleteInfo } from "../../scripts/helpers";
 
 export default function CourseItem({ item, setModal }) {
   const { id, title, description, image } = item;
@@ -13,13 +15,8 @@ export default function CourseItem({ item, setModal }) {
   const isUpdate = true;
 
   function confirmDelete() {
-    const item = {
-      title: "Confirmation",
-      message: "Are you sure you want to delete this item?",
-      btnTitle: "Delete",
-    };
     setModal(
-      <InfoPopup setModal={setModal} onClose={deleteCourse} item={item} />
+      <InfoPopup setModal={setModal} onClose={deleteCourse} item={deleteInfo} />
     );
   }
 
@@ -32,7 +29,7 @@ export default function CourseItem({ item, setModal }) {
     setModal(
       <AddCourseForm setModal={setModal} header={header} isUpdate={isUpdate} />
     );
-    const data = { ...item, title: "zew" };
+    const data = { ...item, title: "NewTitle" };
     await updateDocument(collectionName, data);
     dispatch({ type: "update", payload: data });
   }
@@ -45,14 +42,7 @@ export default function CourseItem({ item, setModal }) {
       <Link to={`/courses/${id}`} className="primary-btn">
         View Details
       </Link>
-      <div className="actions">
-        <button onClick={openEditModal}>
-          <i className="fa-solid fa-pen-to-square"></i>
-        </button>
-        <button onClick={() => confirmDelete()}>
-          <i className="fa-solid fa-trash"></i>
-        </button>
-      </div>
+      <AdminActions openModal={openEditModal} confirm={confirmDelete} />
     </article>
   );
 }

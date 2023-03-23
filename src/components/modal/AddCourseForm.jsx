@@ -10,7 +10,8 @@ import courseTitle from "../../data/courseTitle.json";
 import courseDescription from "../../data/courseDescription.json";
 import InputText from "../form/InputText";
 import InputTextArea from "../form/InputTextarea";
-import { onChooseImage, acceptImg } from "../../scripts/helpers";
+import { onChooseImage } from "../../scripts/resize-image/chooseImage";
+import { acceptImg } from "../../scripts/helpers";
 
 export default function AddCourseForm({ setModal, header, isUpdate }) {
   const { dispatch } = useCourse();

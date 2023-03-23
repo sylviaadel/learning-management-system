@@ -8,28 +8,24 @@ import InfoPopup from "../modal/InfoPopup";
 import Modal from "../modal/Modal";
 import { useState } from "react";
 import { logoAlt } from "../../scripts/helpers";
+import { logoutInfo } from "../../scripts/helpers";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const { uid, setUid, saveUID } = useUser();
   const [modal, setModal] = useState(null);
+  const popup = (
+    <InfoPopup setModal={setModal} onClose={logoutUser} item={logoutInfo} />
+  );
 
   function logoutUser() {
     setUid("");
     saveUID("");
     navigate("/");
   }
-
-  const item = {
-    title: "Confirmation",
-    message: "Are you sure you want to logout?",
-    btnTitle: "Logout",
-  };
   function onChange() {
     if (uid) {
-      setModal(
-        <InfoPopup setModal={setModal} onClose={logoutUser} item={item} />
-      );
+      setModal(popup);
     } else {
       navigate("/login");
     }
@@ -41,7 +37,7 @@ export default function Navbar() {
 
   return (
     <nav id="Navbar">
-      <ul id="Navbar">
+      <ul>
         <li>
           <Link to="/">
             <img src={logo} alt={logoAlt} />

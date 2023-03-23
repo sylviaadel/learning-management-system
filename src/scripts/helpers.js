@@ -1,7 +1,4 @@
 import checkmark from "../assets/images/checkmark.png";
-import { downloadFile, uploadFile } from "./cloudStorage";
-import readFile from "./resize-image/readFile";
-import resizeImage from "./resize-image/resizeImage";
 
 export const courseText =
   "Please check below all materials needed to be professional in this course:";
@@ -33,25 +30,21 @@ export const acceptImg = "image/png, image/jpeg, image/jpg, image/webp";
 export const acceptFile =
   "image/png, image/jpeg, application/pdf, application/vnd.sealed.ppt";
 
-export async function onChooseImage(
-  event,
-  setButtonEnabled,
-  setImage,
-  manualId
-) {
-  const file = event.target.files[0];
-  const filePath = `courses/${manualId}_${file.name}`;
-  const imageFromfile = await readFile(file);
-  setButtonEnabled(false);
-  const resizedImage = await resizeImage(imageFromfile, 325, 170);
-  await uploadFile(resizedImage, filePath);
-  setImage(await downloadFile(filePath));
-  setButtonEnabled(true);
-}
-
 export function changeFiles(files, setFiles) {
   setFiles(files);
 }
 export function changeLinks(links, setLinks) {
   setLinks(links);
 }
+
+export const logoutInfo = {
+  title: "Confirmation",
+  message: "Are you sure you want to logout?",
+  btnTitle: "Logout",
+};
+
+export const deleteInfo = {
+  title: "Confirmation",
+  message: "Are you sure you want to delete this item?",
+  btnTitle: "Delete",
+};

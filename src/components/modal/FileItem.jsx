@@ -2,6 +2,7 @@ import fileIcon from "../../assets/images/file-icon.png";
 import { uploadFile } from "../../scripts/cloudStorage";
 import { downloadFile } from "../../scripts/cloudStorage";
 import { v4 as uuidv4 } from "uuid";
+import { acceptFile } from "../../scripts/helpers";
 
 export default function FileItem({ file, id, changeFile }) {
   const manualId = uuidv4() + "_" + Date.now();
@@ -32,11 +33,7 @@ export default function FileItem({ file, id, changeFile }) {
         </label>
         <label>
           Choose File
-          <input
-            type="file"
-            accept="image/png, image/jpeg, application/pdf, application/vnd.sealed.ppt"
-            onChange={onChangeFile}
-          />
+          <input type="file" accept={acceptFile} onChange={onChangeFile} />
         </label>
       </div>
     </div>

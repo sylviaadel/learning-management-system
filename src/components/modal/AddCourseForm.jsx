@@ -3,16 +3,14 @@ import { createDocumentWithManualId } from "../../scripts/fireStore/createDocume
 import { useCourse } from "../../state/CoursesProvider";
 import { createFile } from "../../scripts/fireStore/createFile";
 import { createLink } from "../../scripts/fireStore/createLink";
-import { downloadFile, uploadFile } from "../../scripts/cloudStorage";
 import Files from "./Files";
 import { Links } from "./Links";
 import { v4 as uuidv4 } from "uuid";
-import readFile from "../../scripts/resize-image/readFile";
-import resizeImage from "../../scripts/resize-image/resizeImage";
 import courseTitle from "../../data/courseTitle.json";
 import courseDescription from "../../data/courseDescription.json";
 import InputText from "../form/InputText";
 import InputTextArea from "../form/InputTextarea";
+import { onChooseImage, acceptImg } from "../../scripts/helpers";
 
 export default function AddCourseForm({ setModal, header, isUpdate }) {
   const { dispatch } = useCourse();
@@ -25,6 +23,8 @@ export default function AddCourseForm({ setModal, header, isUpdate }) {
   const [form, setForm] = useState({ title: "", description: "" });
   const title = courseTitle[0];
   const desc = courseDescription[0];
+  const chooseImage = (event) =>
+    onChooseImage(event, setButtonEnabled, setImage, manualId);
 
   async function onSubmit(e) {
     const data = {
@@ -49,17 +49,6 @@ export default function AddCourseForm({ setModal, header, isUpdate }) {
     // }
   }
 
-  async function onChooseImage(event) {
-    const file = event.target.files[0];
-    const filePath = `courses/${manualId}_${file.name}`;
-    const imageFromfile = await readFile(file);
-    setButtonEnabled(false);
-    const resizedImage = await resizeImage(imageFromfile, 325, 170);
-    await uploadFile(resizedImage, filePath);
-    setImage(await downloadFile(filePath));
-    setButtonEnabled(true);
-  }
-
   function changeFiles(files) {
     setFiles(files);
   }
@@ -74,12 +63,7 @@ export default function AddCourseForm({ setModal, header, isUpdate }) {
       <InputTextArea key={desc.id} item={desc} state={[form, setForm]} />
       <label>
         Choose Image
-        <input
-          required
-          type="file"
-          accept="image/png, image/jpeg, image/jpg, image/webp"
-          onChange={(event) => onChooseImage(event)}
-        />
+        <input required type="file" accept={acceptImg} onChange={chooseImage} />
       </label>
       <Files courseFilesChanged={changeFiles} />
       <Links courseLinksChanged={changeLinks} />

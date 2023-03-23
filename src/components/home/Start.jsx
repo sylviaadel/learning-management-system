@@ -1,6 +1,5 @@
 import startImg from "../../assets/images/start-img.png";
-import { imgStartAlt } from "../../scripts/helpers";
-import { checkmarkIcon } from "../../scripts/helpers";
+import { imgStartAlt, checkmarkIcon } from "../../scripts/helpers";
 
 export default function Start() {
   return (

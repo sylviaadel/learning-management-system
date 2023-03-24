@@ -5,6 +5,7 @@
     "label": "Title:",
     "type": "text",
     "required": true,
-    "disabled": false
+    "disabled": false,
+    "value": ""
   }
 ]

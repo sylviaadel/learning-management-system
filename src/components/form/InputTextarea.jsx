@@ -7,7 +7,7 @@ export default function InputTextArea({ item, state }) {
     <label>
       {item.label}
       <textarea
-        value={formValue}
+        value={item.value == "" ? formValue : item.value}
         onChange={(event) =>
           setForm({ ...form, [formKey]: event.target.value })
         }

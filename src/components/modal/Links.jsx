@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LinkItem from "./LinkItem";
 
-export function Links({ courseLinksChanged }) {
-  const [links, setLinks] = useState([{ title: "", link: "" }]);
+export function Links({ courseLinks, courseLinksChanged }) {
+  const [links, setLinks] = useState([]);
+
+  useEffect(() => {
+    setLinks(courseLinks);
+  }, [courseLinks]);
 
   function changeLink(linkItem, linkIndex) {
     var cloned = [...links];
@@ -18,15 +22,17 @@ export function Links({ courseLinksChanged }) {
     courseLinksChanged(links);
   }
 
+  const Links = links.map((link, index) => (
+    <LinkItem changeLink={changeLink} linkItem={link} key={index} id={index} />
+  ));
+
   return (
     <>
       <h3>
         Links
         <i onClick={addLink} className="fa-solid fa-plus-circle"></i>
       </h3>
-      {links.map((link, index) => (
-        <LinkItem changeLink={changeLink} link={link} key={index} id={index} />
-      ))}
+      {Links}
     </>
   );
 }

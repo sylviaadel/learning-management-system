@@ -1,8 +1,11 @@
+import { useState } from "react";
 import linkIcon from "../../assets/images/link-icon.png";
 
-export default function LinkItem({ link, id, changeLink }) {
+export default function LinkItem({ linkItem, id, changeLink }) {
+  const [link, setLink] = useState(linkItem);
+
   function onChangeTitle(event) {
-    link.title = event.target.value;
+    setLink({ ...link, title: event.target.value });
     changeLink(link, id);
   }
 

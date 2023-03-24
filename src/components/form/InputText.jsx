@@ -7,7 +7,7 @@ export default function InputText({ item, state }) {
     <label className="input-text">
       {item.label}
       <input
-        value={formValue}
+        value={item.value == "" ? formValue : item.value}
         onChange={(event) =>
           setForm({ ...form, [formKey]: event.target.value })
         }

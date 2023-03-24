@@ -3,12 +3,14 @@ import { uploadFile } from "../../scripts/cloudStorage";
 import { downloadFile } from "../../scripts/cloudStorage";
 import { v4 as uuidv4 } from "uuid";
 import { acceptFile } from "../../scripts/helpers";
+import { useState } from "react";
 
-export default function FileItem({ file, id, changeFile }) {
+export default function FileItem({ fileItem, id, changeFile }) {
+  const [file, setFile] = useState(fileItem);
   const manualId = uuidv4() + "_" + Date.now();
 
   function onChangeTitle(event) {
-    file.title = event.target.value;
+    setFile({ ...file, title: event.target.value });
     changeFile(file, id);
   }
 
@@ -17,9 +19,9 @@ export default function FileItem({ file, id, changeFile }) {
     changeFile(file, id);
   }
 
-  async function uploadCourseFile(file) {
-    const filePath = `files/${manualId}_${file.name}`;
-    await uploadFile(file, filePath);
+  async function uploadCourseFile(fileItem) {
+    const filePath = `files/${manualId}_${fileItem.name}`;
+    await uploadFile(fileItem, filePath);
     return await downloadFile(filePath);
   }
 

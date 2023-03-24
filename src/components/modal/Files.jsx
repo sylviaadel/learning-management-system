@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FileItem from "./FileItem";
 
-export default function Files({ courseFilesChanged }) {
-  const [files, setFiles] = useState([{ title: "", file: "" }]);
+export default function Files({ courseFiles, courseFilesChanged }) {
+  const [files, setFiles] = useState([]);
+
+  useEffect(() => {
+    setFiles(courseFiles);
+  }, [courseFiles]);
 
   function changeFile(fileItem, fileIndex) {
     var cloned = [...files];
@@ -17,6 +21,9 @@ export default function Files({ courseFilesChanged }) {
     setFiles(cloned);
     courseFilesChanged(files);
   }
+  const Files = files.map((file, index) => (
+    <FileItem changeFile={changeFile} fileItem={file} key={index} id={index} />
+  ));
 
   return (
     <>
@@ -24,9 +31,7 @@ export default function Files({ courseFilesChanged }) {
         Files
         <i onClick={addFile} className="fa-solid fa-plus-circle"></i>
       </h3>
-      {files.map((file, index) => (
-        <FileItem changeFile={changeFile} file={file} key={index} id={index} />
-      ))}
+      {Files}
     </>
   );
 }

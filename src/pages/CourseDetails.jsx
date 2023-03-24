@@ -61,10 +61,18 @@ export default function CourseDetails({ collection }) {
           </header>
           <div className="course-content">
             <p>{courseText}</p>
-            <h3>Files</h3>
-            <ul>{selectedFiles}</ul>
-            <h3>Links</h3>
-            <ul>{selectedLinks}</ul>
+            {selectedFiles.length > 0 && (
+              <>
+                <h3>Files</h3>
+                <ul>{selectedFiles}</ul>
+              </>
+            )}
+            {selectedLinks.length > 0 && (
+              <>
+                <h3>Links</h3>
+                <ul>{selectedLinks}</ul>
+              </>
+            )}
           </div>
           <Link to="/" className="primary-btn">
             Back

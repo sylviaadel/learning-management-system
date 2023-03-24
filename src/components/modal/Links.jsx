@@ -12,14 +12,14 @@ export function Links({ courseLinks, courseLinksChanged }) {
     var cloned = [...links];
     cloned[linkIndex] = linkItem;
     setLinks(cloned);
-    courseLinksChanged(links);
+    courseLinksChanged(cloned);
   }
 
   function addLink() {
     var cloned = [...links];
     cloned.push({ title: "", link: "" });
     setLinks(cloned);
-    courseLinksChanged(links);
+    courseLinksChanged(cloned);
   }
 
   const Links = links.map((link, index) => (

@@ -12,14 +12,14 @@ export default function Files({ courseFiles, courseFilesChanged }) {
     var cloned = [...files];
     cloned[fileIndex] = fileItem;
     setFiles(cloned);
-    courseFilesChanged(files);
+    courseFilesChanged(cloned);
   }
 
   function addFile() {
     var cloned = [...files];
     cloned.push({ title: "", file: "" });
     setFiles(cloned);
-    courseFilesChanged(files);
+    courseFilesChanged(cloned);
   }
   const Files = files.map((file, index) => (
     <FileItem changeFile={changeFile} fileItem={file} key={index} id={index} />

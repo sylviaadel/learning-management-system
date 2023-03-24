@@ -15,7 +15,7 @@ import { acceptImg } from "../../scripts/helpers";
 import { readDocument } from "../../scripts/fireStore/readDocument";
 import { readSubCollection } from "../../scripts/fireStore/readSubCollection";
 
-export default function AddCourseForm({ setModal, header, isUpdate, id }) {
+export default function CourseForm({ setModal, header, isUpdate, id }) {
   const { dispatch } = useCourse();
   const [status, setStatus] = useState(0);
   const [image, setImage] = useState("");

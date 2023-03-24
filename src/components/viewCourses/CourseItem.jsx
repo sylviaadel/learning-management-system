@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import AddCourseForm from "../modal/AddCourseForm";
+import CourseForm from "../modal/CourseForm";
 import { useCourse } from "../../state/CoursesProvider";
 import InfoPopup from "../modal/InfoPopup";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
@@ -24,7 +24,7 @@ export default function CourseItem({ item, setModal }) {
   }
 
   async function openEditModal() {
-    setModal(<AddCourseForm id={id} setModal={setModal} header={header} />);
+    setModal(<CourseForm id={id} setModal={setModal} header={header} />);
   }
 
   return (

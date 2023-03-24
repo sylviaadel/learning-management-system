@@ -7,6 +7,7 @@ import InputText from "../components/form/InputText";
 import InputCheckbox from "../components/form/InputCheckbox";
 import InfoPopup from "../components/modal/InfoPopup";
 import Modal from "../components/modal/Modal";
+import { readDocument } from "../scripts/fireStore/readDocument";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -14,11 +15,16 @@ export default function Login() {
   const [remember, setRemember] = useState(false);
   const [form, setForm] = useState({ email: "", password: "" });
   const [modal, setModal] = useState(null);
+  const collection = "users";
 
   async function onSubmit(event) {
     event.preventDefault();
     const result = await login(form.email, form.password);
     result.status ? onSuccess(result) : onFail(result);
+    const user = await readDocument(collection, result.payload).catch(onFail);
+    if (user.name === undefined) {
+      navigate("/deleted");
+    }
   }
 
   function onSuccess(result) {

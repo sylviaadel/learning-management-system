@@ -20,11 +20,21 @@ export default function LinkItem({ linkItem, id, changeLink }) {
       <div>
         <label>
           Title
-          <input type="text" value={link.title} onChange={onChangeTitle} />
+          <input
+            required
+            type="text"
+            value={link.title}
+            onChange={onChangeTitle}
+          />
         </label>
         <label>
           Link
-          <input type="text" value={link.link} onChange={onChangeLink} />
+          <input
+            required
+            type="text"
+            value={link.link}
+            onChange={onChangeLink}
+          />
         </label>
       </div>
     </div>

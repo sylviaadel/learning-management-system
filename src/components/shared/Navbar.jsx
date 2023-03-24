@@ -41,7 +41,7 @@ export default function Navbar() {
         <li>
           <Link to="/">
             <img src={logo} alt={logoAlt} />
-            <span className="link-text">Fabric Dreem</span>
+            <span className="link-text">Threads & Trends</span>
           </Link>
         </li>
         {Links}

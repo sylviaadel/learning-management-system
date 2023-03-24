@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+## ReactJS Threads & Trends
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this application you can learn fashion Stying, as an admin you can add courses, update or delete them. Also you can view users and delete any of them. As a Student you can view courses and check all materials.
 
-## Available Scripts
+## Installation and Setup Instructions
 
-In the project directory, you can run:
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
-### `npm start`
+Installation:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`npm install`  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To Start Server:
 
-### `npm test`
+`npm start`  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Starter Project Overview
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Requirement gathering: 
+ https://docs.google.com/document/d/1jFf6gdnFkl8cRVwb3WllE96DknblnB_HEbGJKFDRM_c/edit?usp=sharing
+  
+2. Project spreadsheet:
+ https://docs.google.com/spreadsheets/d/1rf4H2mMZYw6Ih0hZUgoCQ2E5fVcaL4wbJ_0uCXZH2Hw/edit?usp=sharing
+  
+3. User flow diagram:
+  https://miro.com/welcomeonboard/dVlRaURqbUFxS2h1TVNoRHNEU1BCT3FnTWVzV2w3WFc3R2xPVFhSV3ZmWEFZZUZBWW9GT3Y0VjYyY1ptQ3RRSHwzNDU4NzY0NTQ0MTEyNzExNzMzfDI=?share_link_id=760682552591
+  
+4. Design mockup:
+  https://www.figma.com/file/YkGvXnynEG4LxHIGeNi9ac/BBQ-Restaurant-Design?node-id=6%3A443&t=MktcRKhQlz2Agb0X-1
+  
+5. Component tree:
+  https://miro.com/welcomeonboard/dVlRaURqbUFxS2h1TVNoRHNEU1BCT3FnTWVzV2w3WFc3R2xPVFhSV3ZmWEFZZUZBWW9GT3Y0VjYyY1ptQ3RRSHwzNDU4NzY0NTQ0MTEyNzExNzMzfDI=?share_link_id=760682552591
+  
+6. Coding state:
+  I made the following enhancements:
+  1. Added scss to project
+  2. Created navbar component
+  4. Added Home page for all users
+  5. Added the authentication pages
+  6- Made conditions to view pages
+  7. Added admin page
+  8. Added add, update and delete courses
+  9. Added delete user
+  10. Added Students landing page to view course
+  11. Added course page
+  
+7. Hosted link:
+  https://grill-bar-restaurant.web.app/

@@ -44,7 +44,7 @@
       padding: $spacing-small;
       margin: 0 -16px;
     }
-    .delete-item {
+    .info-modal {
       padding: 0 $spacing-small $spacing-small;
       p {
         margin-top: $spacing-medium;
@@ -57,19 +57,6 @@
         justify-content: right;
         gap: $spacing-medium;
         align-items: center;
-        .modal-btn {
-          background-color: $orangeColor;
-          border-radius: 500px;
-          height: 30px;
-          color: $whiteColor;
-          font-size: 16px;
-          width: 70px;
-          border: 0;
-          justify-content: center;
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-        }
       }
     }
     form {
@@ -79,6 +66,17 @@
         font-weight: bold;
         text-align: left;
         margin-top: $spacing-small;
+        &.choose-img {
+          margin: $spacing-medium 0;
+          input {
+            display: none;
+          }
+          img {
+            height: 30px;
+            float: right;
+            margin-top: -10px;
+          }
+        }
       }
       input[type="text"],
       input[type="number"],
@@ -153,6 +151,11 @@
         padding: 0 $spacing-medium $spacing-medium;
         label {
           font-size: 24px;
+          &.choose-img {
+            img {
+              height: 50px;
+            }
+          }
           input[type="text"],
           input[type="number"],
           input[type="file"],

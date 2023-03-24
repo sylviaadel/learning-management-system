@@ -6,7 +6,7 @@ export default function InfoPopup({ setModal, onClose, item }) {
   }
 
   return (
-    <div className="delete-item">
+    <div className="info-modal">
       <h2>{title}</h2>
       <p>{message}</p>
       <div className="modal-footer">

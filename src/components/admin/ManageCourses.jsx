@@ -4,7 +4,7 @@ import { useCourse } from "../../state/CoursesProvider";
 import Spinner from "../shared/Spinner";
 import NotFound from "../../pages/NotFound";
 import CourseItem from "../viewCourses/CourseItem";
-import CourseForm from "../modal/CourseForm";
+import AddCourse from "../modal/AddCourse";
 
 export default function ManageCourses({ setModal }) {
   const { data, dispatch } = useCourse();
@@ -12,7 +12,7 @@ export default function ManageCourses({ setModal }) {
   const collection = "courses";
   const header = "Add new Course";
   const openForm = () =>
-    setModal(<CourseForm setModal={setModal} header={header} />);
+    setModal(<AddCourse setModal={setModal} id={undefined} header={header} />);
 
   useEffect(() => {
     loadData(collection);

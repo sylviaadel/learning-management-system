@@ -1,8 +1,8 @@
 import { collection, addDoc } from "firebase/firestore";
 import { database } from "../firebaseSetup";
 
-export async function createFile(collectionName, id, data) {
-  const reference = collection(database, collectionName, id, "files");
+export async function createItem(collectionName, id, data, subCollection) {
+  const reference = collection(database, collectionName, id, subCollection);
   const document = await addDoc(reference, data);
   const result = document.id;
 

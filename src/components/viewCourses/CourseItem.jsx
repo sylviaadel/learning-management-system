@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import CourseForm from "../modal/CourseForm";
+import UpdateCourse from "../modal/UpdateCourse";
 import { useCourse } from "../../state/CoursesProvider";
 import InfoPopup from "../modal/InfoPopup";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 import AdminActions from "./AdminActions";
 import { deleteInfo } from "../../scripts/helpers";
+import imgIcon from "../../assets/images/camera-icon.png";
 
 export default function CourseItem({ item, setModal }) {
   const { id, title, description, image } = item;
@@ -24,12 +25,12 @@ export default function CourseItem({ item, setModal }) {
   }
 
   async function openEditModal() {
-    setModal(<CourseForm id={id} setModal={setModal} header={header} />);
+    setModal(<UpdateCourse id={id} setModal={setModal} header={header} />);
   }
 
   return (
     <article className="course-item">
-      <img src={image} alt={title} />
+      <img src={image ? image : imgIcon} alt={title} />
       <h2>{title}</h2>
       <p>{description}</p>
       <Link to={`/courses/${id}`} className="primary-btn">

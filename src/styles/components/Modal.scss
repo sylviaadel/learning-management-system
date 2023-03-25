@@ -61,6 +61,13 @@
     }
     form {
       padding: 0 $spacing-small $spacing-small;
+      &.update {
+        h3,
+        .file-item,
+        .link-item {
+          display: none;
+        }
+      }
       label {
         display: block;
         font-weight: bold;

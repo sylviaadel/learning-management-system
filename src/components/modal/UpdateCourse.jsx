@@ -79,7 +79,7 @@ export default function UpdateCourse({ setModal, header, id }) {
   }
 
   return (
-    <form onSubmit={(event) => onSubmit(event)}>
+    <form onSubmit={(event) => onSubmit(event)} className="update">
       <h2>{header}</h2>
       <FormItems
         image={image}

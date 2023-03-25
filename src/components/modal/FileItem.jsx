@@ -31,21 +31,11 @@ export default function FileItem({ fileItem, id, changeFile }) {
       <div>
         <label>
           Title
-          <input
-            required
-            type="text"
-            value={file.title}
-            onChange={onChangeTitle}
-          />
+          <input type="text" value={file.title} onChange={onChangeTitle} />
         </label>
         <label>
           Choose File
-          <input
-            required
-            type="file"
-            accept={acceptFile}
-            onChange={onChangeFile}
-          />
+          <input type="file" accept={acceptFile} onChange={onChangeFile} />
         </label>
       </div>
     </div>

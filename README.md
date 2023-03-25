@@ -1,6 +1,8 @@
 ## ReactJS Threads & Trends
 
-In this application you can learn fashion Stying, as an admin you can add courses, update or delete them. Also you can view users and delete any of them. As a Student you can view courses and check all materials.
+In this application you can learn fashion Stying, as an admin you can add courses, update or delete them. Also you can view users and delete any of them. As a Student you can view courses and check all materials. To be able to login as teacher use the following credentials:
+email: john@gmail.com
+password: 12345678
 
 ## Installation and Setup Instructions
 

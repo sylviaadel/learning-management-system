@@ -9,6 +9,7 @@ export default function StudentItem({ item, setModal }) {
   const collectionName = "users";
 
   function confirmDelete() {
+    // very nice touch! for the modals!
     const item = {
       title: "Confirmation",
       message: "Are you sure you want to delete this item?",

@@ -35,6 +35,7 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        {/* nesting -1 */}
         <Navbar />
         {uid === "" || uid === null ? (
           <UnloggedRoutes />

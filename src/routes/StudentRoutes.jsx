@@ -8,6 +8,7 @@ export default function StudentRoutes() {
   const name = "courses";
   const path = "/courses/:id";
 
+  //  good
   return (
     <Routes>
       <Route path="/" element={<ViewCourses collection={name} />} />

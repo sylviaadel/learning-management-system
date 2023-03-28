@@ -6,6 +6,7 @@ import NotFound from "../../pages/NotFound";
 import CourseItem from "../viewCourses/CourseItem";
 import AddCourse from "../modal/AddCourse";
 
+// great
 export default function ManageCourses({ setModal }) {
   const { data, dispatch } = useCourse();
   const [status, setStatus] = useState(0);

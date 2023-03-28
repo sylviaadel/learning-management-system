@@ -9,6 +9,7 @@ import Material from "../components/viewCourses/CourseMaterials";
 import { courseText } from "../scripts/helpers";
 import imgIcon from "../assets/images/camera-icon.png";
 
+// this is too long
 export default function CourseDetails({ collection }) {
   let { id } = useParams();
   const { data, dispatch } = useCourse();
@@ -22,6 +23,7 @@ export default function CourseDetails({ collection }) {
     loadData(collection);
   }, []);
 
+  // this code looks messy, please refactor. Use our FormImage.tsx in the fe3-bbq-restaurant for reference
   async function loadData(collection) {
     if (currentCourse === undefined) {
       setStatus(2);
@@ -63,6 +65,7 @@ export default function CourseDetails({ collection }) {
           </header>
           <div className="course-content">
             <p>{courseText}</p>
+            {/* formatting: dont do logic here, put in components -1 */}
             {selectedFiles.length > 0 && (
               <>
                 <h3>Files</h3>

@@ -3,6 +3,7 @@ import ManageCourses from "./ManageCourses";
 import ManageStudents from "./ManageStudents";
 import Modal from "../modal/Modal";
 
+// good
 export default function Tabs() {
   const [modal, setModal] = useState(null);
   const [activeTab, setActiveTab] = useState("courses");

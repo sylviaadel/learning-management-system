@@ -3,6 +3,7 @@ import Admin from "../pages/Admin";
 import NotFound from "../pages/NotFound";
 import CourseDetails from "../pages/CourseDetails";
 
+//good
 export default function TeacherRoutes() {
   const name = "courses";
   const path = "/courses/:id";

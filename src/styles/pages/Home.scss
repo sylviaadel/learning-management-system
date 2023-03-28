@@ -1,6 +1,7 @@
 #Home {
   .Hero {
-    min-height: calc(100vh - 60px);
+    min-height: 66vh;
+    padding: $spacing-large;
     background: linear-gradient(
         rgba(255, 246, 243, 0.7),
         rgba(255, 246, 243, 0.7)
@@ -117,8 +118,7 @@
 @media (min-width: 860px) {
   #Home {
     .Hero {
-      min-height: calc(100vh);
-      padding: 2rem;
+      padding: 4rem;
       background: url("../../assets/images/main-bg.png") right;
       background-size: cover;
       padding-left: 10%;

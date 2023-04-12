@@ -25,7 +25,7 @@ To Start Server:
  https://docs.google.com/spreadsheets/d/1rf4H2mMZYw6Ih0hZUgoCQ2E5fVcaL4wbJ_0uCXZH2Hw/edit?usp=sharing
   
 3. User flow diagram:
-  https://miro.com/welcomeonboard/dVlRaURqbUFxS2h1TVNoRHNEU1BCT3FnTWVzV2w3WFc3R2xPVFhSV3ZmWEFZZUZBWW9GT3Y0VjYyY1ptQ3RRSHwzNDU4NzY0NTQ0MTEyNzExNzMzfDI=?share_link_id=760682552591
+ https://whimsical.com/management-learning-system-BypVTuji8QMwTxsNCjFiQM
   
 4. Design mockup:
   https://www.figma.com/file/YkGvXnynEG4LxHIGeNi9ac/BBQ-Restaurant-Design?node-id=6%3A443&t=MktcRKhQlz2Agb0X-1

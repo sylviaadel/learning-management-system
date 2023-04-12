@@ -19,19 +19,19 @@ To Start Server:
 ## Starter Project Overview
 
 1. Requirement gathering: 
- https://docs.google.com/document/d/1jFf6gdnFkl8cRVwb3WllE96DknblnB_HEbGJKFDRM_c/edit?usp=sharing
+ https://docs.google.com/document/d/1A63pIZGzY2p8GZ-XHbGURsgKhFA7WV8DVEPsICprNs8/edit?usp=sharing
   
 2. Project spreadsheet:
- https://docs.google.com/spreadsheets/d/1rf4H2mMZYw6Ih0hZUgoCQ2E5fVcaL4wbJ_0uCXZH2Hw/edit?usp=sharing
+ https://docs.google.com/spreadsheets/d/1tcokzhuR7Z9dwpY21RAGg4fViMS80HEP_QWNeRJeFkw/edit?usp=sharing
   
 3. User flow diagram:
  https://whimsical.com/management-learning-system-BypVTuji8QMwTxsNCjFiQM
   
 4. Design mockup:
-  https://www.figma.com/file/YkGvXnynEG4LxHIGeNi9ac/BBQ-Restaurant-Design?node-id=6%3A443&t=MktcRKhQlz2Agb0X-1
+ https://www.figma.com/file/7bugUubGAtzTacKU4RCKid/Learning-Management-System?t=duygg7VE5pFlCcDV-1
   
 5. Component tree:
-  https://miro.com/welcomeonboard/dVlRaURqbUFxS2h1TVNoRHNEU1BCT3FnTWVzV2w3WFc3R2xPVFhSV3ZmWEFZZUZBWW9GT3Y0VjYyY1ptQ3RRSHwzNDU4NzY0NTQ0MTEyNzExNzMzfDI=?share_link_id=760682552591
+  https://whimsical.com/management-learning-system-BypVTuji8QMwTxsNCjFiQM
   
 6. Coding state:
   I made the following enhancements:
@@ -47,4 +47,4 @@ To Start Server:
   11. Added course page
   
 7. Hosted link:
-  https://grill-bar-restaurant.web.app/
+  https://sylvia-learning-system.web.app/
